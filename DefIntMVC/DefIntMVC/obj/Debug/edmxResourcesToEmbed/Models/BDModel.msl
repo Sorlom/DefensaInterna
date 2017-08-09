@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BDProDefIntModelStoreContainer" CdmEntityContainer="BDProDefIntEntities">
+    <EntitySetMapping Name="Bitacora">
+      <EntityTypeMapping TypeName="BDProDefIntModel.Bitacora">
+        <MappingFragment StoreEntitySet="Bitacora">
+          <ScalarProperty Name="codbit" ColumnName="codbit" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="terminal" ColumnName="terminal" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="aplicacion" ColumnName="aplicacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cliente">
+      <EntityTypeMapping TypeName="BDProDefIntModel.Cliente">
+        <MappingFragment StoreEntitySet="Cliente">
+          <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+          <ScalarProperty Name="CI" ColumnName="CI" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="fechaNac" ColumnName="fechaNac" />
+          <ScalarProperty Name="estadoCivil" ColumnName="estadoCivil" />
+          <ScalarProperty Name="Profesion" ColumnName="Profesion" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetalleGasto">
+      <EntityTypeMapping TypeName="BDProDefIntModel.DetalleGasto">
+        <MappingFragment StoreEntitySet="DetalleGasto">
+          <ScalarProperty Name="idDetalleGasto" ColumnName="idDetalleGasto" />
+          <ScalarProperty Name="Sepelio" ColumnName="Sepelio" />
+          <ScalarProperty Name="imagenSepelio" ColumnName="imagenSepelio" />
+          <ScalarProperty Name="atencionMedica" ColumnName="atencionMedica" />
+          <ScalarProperty Name="imagenAtMedic" ColumnName="imagenAtMedic" />
+          <ScalarProperty Name="dañosPropiedad" ColumnName="dañosPropiedad" />
+          <ScalarProperty Name="imagenDProp" ColumnName="imagenDProp" />
+          <ScalarProperty Name="muerteAccidente" ColumnName="muerteAccidente" />
+          <ScalarProperty Name="imagenMuerteAcc" ColumnName="imagenMuerteAcc" />
+          <ScalarProperty Name="perdidaTotal" ColumnName="perdidaTotal" />
+          <ScalarProperty Name="imagenPerdTotal" ColumnName="imagenPerdTotal" />
+          <ScalarProperty Name="reparacionVehicular" ColumnName="reparacionVehicular" />
+          <ScalarProperty Name="imagenRepVehicular" ColumnName="imagenRepVehicular" />
+          <ScalarProperty Name="idSiniestro" ColumnName="idSiniestro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Funcionario">
+      <EntityTypeMapping TypeName="BDProDefIntModel.Funcionario">
+        <MappingFragment StoreEntitySet="Funcionario">
+          <ScalarProperty Name="idFuncionario" ColumnName="idFuncionario" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="idRol" ColumnName="idRol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="polizaVehicular">
+      <EntityTypeMapping TypeName="BDProDefIntModel.polizaVehicular">
+        <MappingFragment StoreEntitySet="polizaVehicular">
+          <ScalarProperty Name="idPoliza" ColumnName="idPoliza" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+          <ScalarProperty Name="Año" ColumnName="Año" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="Placa" ColumnName="Placa" />
+          <ScalarProperty Name="Chasis" ColumnName="Chasis" />
+          <ScalarProperty Name="Costo" ColumnName="Costo" />
+          <ScalarProperty Name="idFuncionario" ColumnName="idFuncionario" />
+          <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+          <ScalarProperty Name="idTipoPoliza" ColumnName="idTipoPoliza" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="BDProDefIntModel.Roles">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="idRol" ColumnName="idRol" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Siniestro">
+      <EntityTypeMapping TypeName="BDProDefIntModel.Siniestro">
+        <MappingFragment StoreEntitySet="Siniestro">
+          <ScalarProperty Name="idSiniestro" ColumnName="idSiniestro" />
+          <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+          <ScalarProperty Name="Lugar" ColumnName="Lugar" />
+          <ScalarProperty Name="Detalle" ColumnName="Detalle" />
+          <ScalarProperty Name="dañosMateriales" ColumnName="dañosMateriales" />
+          <ScalarProperty Name="dañosPersonales" ColumnName="dañosPersonales" />
+          <ScalarProperty Name="fechaFin" ColumnName="fechaFin" />
+          <ScalarProperty Name="Fotografia" ColumnName="Fotografia" />
+          <ScalarProperty Name="Costo" ColumnName="Costo" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="idPoliza" ColumnName="idPoliza" />
+          <ScalarProperty Name="idFuncionario" ColumnName="idFuncionario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipoPoliza">
+      <EntityTypeMapping TypeName="BDProDefIntModel.tipoPoliza">
+        <MappingFragment StoreEntitySet="tipoPoliza">
+          <ScalarProperty Name="idTipoPoliza" ColumnName="idTipoPoliza" />
+          <ScalarProperty Name="NombreTP" ColumnName="NombreTP" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

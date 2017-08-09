@@ -1,0 +1,128 @@
+﻿@model DefIntMVC.Models.DetalleGasto
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>DetalleGasto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Sepelio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sepelio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.imagenSepelio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imagenSepelio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.atencionMedica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.atencionMedica)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.imagenAtMedic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imagenAtMedic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dañosPropiedad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dañosPropiedad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.imagenDProp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imagenDProp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.muerteAccidente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.muerteAccidente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.imagenMuerteAcc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imagenMuerteAcc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.perdidaTotal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.perdidaTotal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.imagenPerdTotal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imagenPerdTotal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.reparacionVehicular)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.reparacionVehicular)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.imagenRepVehicular)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imagenRepVehicular)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Siniestro.Lugar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Siniestro.Lugar)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

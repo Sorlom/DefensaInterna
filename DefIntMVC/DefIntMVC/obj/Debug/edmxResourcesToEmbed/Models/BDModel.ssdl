@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BDProDefIntModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Bitacora">
+    <Key>
+      <PropertyRef Name="codbit" />
+    </Key>
+    <Property Name="codbit" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="fecha" Type="datetime" Nullable="false" />
+    <Property Name="terminal" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="usuario" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="aplicacion" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="idCliente" />
+    </Key>
+    <Property Name="idCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CI" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="fechaNac" Type="date" Nullable="false" />
+    <Property Name="estadoCivil" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Profesion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Telefono" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DetalleGasto">
+    <Key>
+      <PropertyRef Name="idDetalleGasto" />
+    </Key>
+    <Property Name="idDetalleGasto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Sepelio" Type="float" />
+    <Property Name="imagenSepelio" Type="image" />
+    <Property Name="atencionMedica" Type="float" />
+    <Property Name="imagenAtMedic" Type="image" />
+    <Property Name="dañosPropiedad" Type="float" />
+    <Property Name="imagenDProp" Type="image" />
+    <Property Name="muerteAccidente" Type="float" />
+    <Property Name="imagenMuerteAcc" Type="image" />
+    <Property Name="perdidaTotal" Type="float" />
+    <Property Name="imagenPerdTotal" Type="image" />
+    <Property Name="reparacionVehicular" Type="float" />
+    <Property Name="imagenRepVehicular" Type="image" />
+    <Property Name="idSiniestro" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Funcionario">
+    <Key>
+      <PropertyRef Name="idFuncionario" />
+    </Key>
+    <Property Name="idFuncionario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Login" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="idRol" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="polizaVehicular">
+    <Key>
+      <PropertyRef Name="idPoliza" />
+    </Key>
+    <Property Name="idPoliza" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tipo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Modelo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Año" Type="int" Nullable="false" />
+    <Property Name="Color" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Placa" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Chasis" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Costo" Type="float" Nullable="false" />
+    <Property Name="idFuncionario" Type="int" Nullable="false" />
+    <Property Name="idCliente" Type="int" Nullable="false" />
+    <Property Name="idTipoPoliza" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="idRol" />
+    </Key>
+    <Property Name="idRol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Siniestro">
+    <Key>
+      <PropertyRef Name="idSiniestro" />
+    </Key>
+    <Property Name="idSiniestro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fechaInicio" Type="date" Nullable="false" />
+    <Property Name="Lugar" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Detalle" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="dañosMateriales" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="dañosPersonales" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="fechaFin" Type="date" />
+    <Property Name="Fotografia" Type="image" Nullable="false" />
+    <Property Name="Costo" Type="float" />
+    <Property Name="Estado" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="idPoliza" Type="int" />
+    <Property Name="idFuncionario" Type="int" />
+  </EntityType>
+  <EntityType Name="tipoPoliza">
+    <Key>
+      <PropertyRef Name="idTipoPoliza" />
+    </Key>
+    <Property Name="idTipoPoliza" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreTP" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__DetalleGa__idSin__239E4DCF">
+    <End Role="Siniestro" Type="Self.Siniestro" Multiplicity="1" />
+    <End Role="DetalleGasto" Type="Self.DetalleGasto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Siniestro">
+        <PropertyRef Name="idSiniestro" />
+      </Principal>
+      <Dependent Role="DetalleGasto">
+        <PropertyRef Name="idSiniestro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Funcionar__idRol__173876EA">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+    <End Role="Funcionario" Type="Self.Funcionario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="idRol" />
+      </Principal>
+      <Dependent Role="Funcionario">
+        <PropertyRef Name="idRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__polizaVeh__idCli__1BFD2C07">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="polizaVehicular" Type="Self.polizaVehicular" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="idCliente" />
+      </Principal>
+      <Dependent Role="polizaVehicular">
+        <PropertyRef Name="idCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__polizaVeh__idFun__1B0907CE">
+    <End Role="Funcionario" Type="Self.Funcionario" Multiplicity="1" />
+    <End Role="polizaVehicular" Type="Self.polizaVehicular" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Funcionario">
+        <PropertyRef Name="idFuncionario" />
+      </Principal>
+      <Dependent Role="polizaVehicular">
+        <PropertyRef Name="idFuncionario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__polizaVeh__idTip__1CF15040">
+    <End Role="tipoPoliza" Type="Self.tipoPoliza" Multiplicity="1" />
+    <End Role="polizaVehicular" Type="Self.polizaVehicular" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipoPoliza">
+        <PropertyRef Name="idTipoPoliza" />
+      </Principal>
+      <Dependent Role="polizaVehicular">
+        <PropertyRef Name="idTipoPoliza" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Siniestro__idFun__20C1E124">
+    <End Role="Funcionario" Type="Self.Funcionario" Multiplicity="0..1" />
+    <End Role="Siniestro" Type="Self.Siniestro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Funcionario">
+        <PropertyRef Name="idFuncionario" />
+      </Principal>
+      <Dependent Role="Siniestro">
+        <PropertyRef Name="idFuncionario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Siniestro__idPol__1FCDBCEB">
+    <End Role="polizaVehicular" Type="Self.polizaVehicular" Multiplicity="0..1" />
+    <End Role="Siniestro" Type="Self.Siniestro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="polizaVehicular">
+        <PropertyRef Name="idPoliza" />
+      </Principal>
+      <Dependent Role="Siniestro">
+        <PropertyRef Name="idPoliza" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BDProDefIntModelStoreContainer">
+    <EntitySet Name="Bitacora" EntityType="Self.Bitacora" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DetalleGasto" EntityType="Self.DetalleGasto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Funcionario" EntityType="Self.Funcionario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="polizaVehicular" EntityType="Self.polizaVehicular" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Siniestro" EntityType="Self.Siniestro" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tipoPoliza" EntityType="Self.tipoPoliza" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__DetalleGa__idSin__239E4DCF" Association="Self.FK__DetalleGa__idSin__239E4DCF">
+      <End Role="Siniestro" EntitySet="Siniestro" />
+      <End Role="DetalleGasto" EntitySet="DetalleGasto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Funcionar__idRol__173876EA" Association="Self.FK__Funcionar__idRol__173876EA">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Funcionario" EntitySet="Funcionario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__polizaVeh__idCli__1BFD2C07" Association="Self.FK__polizaVeh__idCli__1BFD2C07">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="polizaVehicular" EntitySet="polizaVehicular" />
+    </AssociationSet>
+    <AssociationSet Name="FK__polizaVeh__idFun__1B0907CE" Association="Self.FK__polizaVeh__idFun__1B0907CE">
+      <End Role="Funcionario" EntitySet="Funcionario" />
+      <End Role="polizaVehicular" EntitySet="polizaVehicular" />
+    </AssociationSet>
+    <AssociationSet Name="FK__polizaVeh__idTip__1CF15040" Association="Self.FK__polizaVeh__idTip__1CF15040">
+      <End Role="tipoPoliza" EntitySet="tipoPoliza" />
+      <End Role="polizaVehicular" EntitySet="polizaVehicular" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Siniestro__idFun__20C1E124" Association="Self.FK__Siniestro__idFun__20C1E124">
+      <End Role="Funcionario" EntitySet="Funcionario" />
+      <End Role="Siniestro" EntitySet="Siniestro" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Siniestro__idPol__1FCDBCEB" Association="Self.FK__Siniestro__idPol__1FCDBCEB">
+      <End Role="polizaVehicular" EntitySet="polizaVehicular" />
+      <End Role="Siniestro" EntitySet="Siniestro" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

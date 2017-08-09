@@ -1,0 +1,105 @@
+﻿@model IEnumerable<DefIntMVC.Models.DetalleGasto>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Sepelio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.imagenSepelio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.atencionMedica)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.imagenAtMedic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dañosPropiedad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.imagenDProp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.muerteAccidente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.imagenMuerteAcc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.perdidaTotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.imagenPerdTotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.reparacionVehicular)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.imagenRepVehicular)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Siniestro.Lugar)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sepelio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.imagenSepelio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.atencionMedica)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.imagenAtMedic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dañosPropiedad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.imagenDProp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.muerteAccidente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.imagenMuerteAcc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.perdidaTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.imagenPerdTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.reparacionVehicular)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.imagenRepVehicular)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Siniestro.Lugar)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idDetalleGasto }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idDetalleGasto }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idDetalleGasto })
+        </td>
+    </tr>
+}
+
+</table>

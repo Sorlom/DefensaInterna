@@ -1,0 +1,106 @@
+﻿@model DefIntMVC.Models.Siniestro
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Siniestro</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaInicio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaInicio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lugar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lugar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Detalle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Detalle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dañosMateriales)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dañosMateriales)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dañosPersonales)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dañosPersonales)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaFin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaFin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fotografia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fotografia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Costo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Costo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Funcionario.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Funcionario.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.polizaVehicular.Tipo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.polizaVehicular.Tipo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idSiniestro }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
