@@ -21,7 +21,7 @@ namespace DefIntMVC.Models
         }
     
         public int idSiniestro { get; set; }
-        public System.DateTime fechaInicio { get; set; }
+        public Nullable<System.DateTime> fechaInicio { get; set; }
         public string Lugar { get; set; }
         public string Detalle { get; set; }
         public string dañosMateriales { get; set; }
@@ -30,6 +30,7 @@ namespace DefIntMVC.Models
         public byte[] Fotografia { get; set; }
         public Nullable<double> Costo { get; set; }
         public string Estado { get; set; }
+        public string DescripcionCierre { get; set; }
         public Nullable<int> idPoliza { get; set; }
         public Nullable<int> idFuncionario { get; set; }
     

@@ -4,15 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="79346f74cbc848b383c2def8b03e6e49" Name="Diagram1">
-        <EntityTypeShape EntityType="BDProDefIntModel.Bitacora" Width="1.5" PointX="7.375" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDProDefIntModel.Cliente" Width="1.5" PointX="1.125" PointY="0.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDProDefIntModel.DetalleGasto" Width="1.5" PointX="7.375" PointY="0.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDProDefIntModel.Funcionario" Width="1.5" PointX="1.125" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDProDefIntModel.polizaVehicular" Width="1.5" PointX="3.375" PointY="0.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDProDefIntModel.Roles" Width="1.5" PointX="3.375" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDProDefIntModel.Siniestro" Width="1.5" PointX="5.375" PointY="3.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDProDefIntModel.tipoPoliza" Width="1.5" PointX="5.375" PointY="0.625" IsExpanded="true" />
+      <Diagram DiagramId="0faa6d0cb63a4aad89aafe7b2ca96a8e" Name="Diagram1">
+        <EntityTypeShape EntityType="BDProDefIntModel.Bitacora" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDProDefIntModel.Cliente" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDProDefIntModel.DetalleGasto" Width="1.5" PointX="9.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDProDefIntModel.Funcionario" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDProDefIntModel.polizaVehicular" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDProDefIntModel.Roles" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDProDefIntModel.Siniestro" Width="1.5" PointX="7.5" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDProDefIntModel.tipoPoliza" Width="1.5" PointX="3" PointY="10.25" IsExpanded="true" />
         <AssociationConnector Association="BDProDefIntModel.FK__polizaVeh__idCli__1BFD2C07" ManuallyRouted="false" />
         <AssociationConnector Association="BDProDefIntModel.FK__DetalleGa__idSin__239E4DCF" ManuallyRouted="false" />
         <AssociationConnector Association="BDProDefIntModel.FK__Funcionar__idRol__173876EA" ManuallyRouted="false" />

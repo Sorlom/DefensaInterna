@@ -21,13 +21,16 @@ namespace DefIntMVC.Models
         }
     
         public int idPoliza { get; set; }
+        public Nullable<System.DateTime> fechaInicio { get; set; }
+        public Nullable<System.DateTime> fechaFin { get; set; }
         public string Tipo { get; set; }
         public string Modelo { get; set; }
         public int Año { get; set; }
         public string Color { get; set; }
         public string Placa { get; set; }
         public string Chasis { get; set; }
-        public double Costo { get; set; }
+        public Nullable<double> Costo { get; set; }
+        public string Estado { get; set; }
         public int idFuncionario { get; set; }
         public int idCliente { get; set; }
         public int idTipoPoliza { get; set; }

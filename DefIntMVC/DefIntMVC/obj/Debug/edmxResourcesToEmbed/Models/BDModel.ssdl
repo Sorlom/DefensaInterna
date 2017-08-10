@@ -18,7 +18,7 @@
     <Property Name="idCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CI" Type="int" Nullable="false" />
     <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="fechaNac" Type="date" Nullable="false" />
+    <Property Name="Edad" Type="int" Nullable="false" />
     <Property Name="estadoCivil" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Profesion" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
@@ -30,17 +30,17 @@
     </Key>
     <Property Name="idDetalleGasto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Sepelio" Type="float" />
-    <Property Name="imagenSepelio" Type="image" />
+    <Property Name="imagenSepelio" Type="varbinary(max)" />
     <Property Name="atencionMedica" Type="float" />
-    <Property Name="imagenAtMedic" Type="image" />
+    <Property Name="imagenAtMedic" Type="varbinary(max)" />
     <Property Name="dañosPropiedad" Type="float" />
-    <Property Name="imagenDProp" Type="image" />
+    <Property Name="imagenDProp" Type="varbinary(max)" />
     <Property Name="muerteAccidente" Type="float" />
-    <Property Name="imagenMuerteAcc" Type="image" />
+    <Property Name="imagenMuerteAcc" Type="varbinary(max)" />
     <Property Name="perdidaTotal" Type="float" />
-    <Property Name="imagenPerdTotal" Type="image" />
+    <Property Name="imagenPerdTotal" Type="varbinary(max)" />
     <Property Name="reparacionVehicular" Type="float" />
-    <Property Name="imagenRepVehicular" Type="image" />
+    <Property Name="imagenRepVehicular" Type="varbinary(max)" />
     <Property Name="idSiniestro" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Funcionario">
@@ -51,6 +51,7 @@
     <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Login" Type="varchar" MaxLength="30" Nullable="false" />
     <Property Name="Password" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="fechaPass" Type="datetime" Nullable="false" />
     <Property Name="idRol" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="polizaVehicular">
@@ -58,13 +59,16 @@
       <PropertyRef Name="idPoliza" />
     </Key>
     <Property Name="idPoliza" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fechaInicio" Type="datetime" />
+    <Property Name="fechaFin" Type="datetime" />
     <Property Name="Tipo" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Modelo" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Año" Type="int" Nullable="false" />
     <Property Name="Color" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Placa" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Chasis" Type="varchar" MaxLength="200" Nullable="false" />
-    <Property Name="Costo" Type="float" Nullable="false" />
+    <Property Name="Costo" Type="float" />
+    <Property Name="Estado" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="idFuncionario" Type="int" Nullable="false" />
     <Property Name="idCliente" Type="int" Nullable="false" />
     <Property Name="idTipoPoliza" Type="int" Nullable="false" />
@@ -82,15 +86,16 @@
       <PropertyRef Name="idSiniestro" />
     </Key>
     <Property Name="idSiniestro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="fechaInicio" Type="date" Nullable="false" />
+    <Property Name="fechaInicio" Type="date" />
     <Property Name="Lugar" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Detalle" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="dañosMateriales" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="dañosPersonales" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="fechaFin" Type="date" />
-    <Property Name="Fotografia" Type="image" Nullable="false" />
+    <Property Name="Fotografia" Type="varbinary(max)" Nullable="false" />
     <Property Name="Costo" Type="float" />
-    <Property Name="Estado" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Estado" Type="varchar" MaxLength="50" />
+    <Property Name="DescripcionCierre" Type="varchar" MaxLength="300" />
     <Property Name="idPoliza" Type="int" />
     <Property Name="idFuncionario" Type="int" />
   </EntityType>

@@ -7,6 +7,7 @@
     <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -17,7 +18,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Nombre de aplicación", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("BOLIVIANA SEGUROS S.A.", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -27,6 +28,7 @@
                     <li>@Html.ActionLink("Siniestro", "Index", "Siniestro")</li>
                     <li>@Html.ActionLink("Detalle Gastos", "Index", "DetalleGasto")</li>
                     <li>@Html.ActionLink("Bitacora", "Index", "Bitacora")</li>
+                    <li>@Html.ActionLink("Reportes", "Index", "Reportes")</li>
 
                 </ul>
             </div>
@@ -36,7 +38,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+            <p>&copy; UTEPSA - Defensa Interna - Ing. Sistemas - Jose Solano Romero</p>
         </footer>
     </div>
 

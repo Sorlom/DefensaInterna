@@ -50,7 +50,7 @@ namespace DefIntMVC.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idPoliza,Tipo,Modelo,Año,Color,Placa,Chasis,Costo,idFuncionario,idCliente,idTipoPoliza")] polizaVehicular polizaVehicular)
+        public ActionResult Create([Bind(Include = "idPoliza,fechaInicio,fechaFin,Tipo,Modelo,Año,Color,Placa,Chasis,Costo,Estado,idFuncionario,idCliente,idTipoPoliza")] polizaVehicular polizaVehicular)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace DefIntMVC.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idPoliza,Tipo,Modelo,Año,Color,Placa,Chasis,Costo,idFuncionario,idCliente,idTipoPoliza")] polizaVehicular polizaVehicular)
+        public ActionResult Edit([Bind(Include = "idPoliza,fechaInicio,fechaFin,Tipo,Modelo,Año,Color,Placa,Chasis,Costo,Estado,idFuncionario,idCliente,idTipoPoliza")] polizaVehicular polizaVehicular)
         {
             if (ModelState.IsValid)
             {

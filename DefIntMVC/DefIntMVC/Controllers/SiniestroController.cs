@@ -49,7 +49,7 @@ namespace DefIntMVC.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idSiniestro,fechaInicio,Lugar,Detalle,dañosMateriales,dañosPersonales,fechaFin,Fotografia,Costo,Estado,idPoliza,idFuncionario")] Siniestro siniestro)
+        public ActionResult Create([Bind(Include = "idSiniestro,fechaInicio,Lugar,Detalle,dañosMateriales,dañosPersonales,fechaFin,Fotografia,Costo,Estado,DescripcionCierre,idPoliza,idFuncionario")] Siniestro siniestro)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace DefIntMVC.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idSiniestro,fechaInicio,Lugar,Detalle,dañosMateriales,dañosPersonales,fechaFin,Fotografia,Costo,Estado,idPoliza,idFuncionario")] Siniestro siniestro)
+        public ActionResult Edit([Bind(Include = "idSiniestro,fechaInicio,Lugar,Detalle,dañosMateriales,dañosPersonales,fechaFin,Fotografia,Costo,Estado,DescripcionCierre,idPoliza,idFuncionario")] Siniestro siniestro)
         {
             if (ModelState.IsValid)
             {

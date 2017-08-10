@@ -18,7 +18,7 @@
     <Property Name="idCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="CI" Type="Int32" Nullable="false" />
     <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="fechaNac" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Edad" Type="Int32" Nullable="false" />
     <Property Name="estadoCivil" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Profesion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
@@ -53,6 +53,7 @@
     <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Login" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Password" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="fechaPass" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="idRol" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Roles" Relationship="Self.FK__Funcionar__idRol__173876EA" FromRole="Funcionario" ToRole="Roles" />
     <NavigationProperty Name="polizaVehicular" Relationship="Self.FK__polizaVeh__idFun__1B0907CE" FromRole="Funcionario" ToRole="polizaVehicular" />
@@ -63,13 +64,16 @@
       <PropertyRef Name="idPoliza" />
     </Key>
     <Property Name="idPoliza" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fechaInicio" Type="DateTime" Precision="3" />
+    <Property Name="fechaFin" Type="DateTime" Precision="3" />
     <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Modelo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Año" Type="Int32" Nullable="false" />
     <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Placa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Chasis" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Costo" Type="Double" Nullable="false" />
+    <Property Name="Costo" Type="Double" />
+    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="idFuncionario" Type="Int32" Nullable="false" />
     <Property Name="idCliente" Type="Int32" Nullable="false" />
     <Property Name="idTipoPoliza" Type="Int32" Nullable="false" />
@@ -92,7 +96,7 @@
       <PropertyRef Name="idSiniestro" />
     </Key>
     <Property Name="idSiniestro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="fechaInicio" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="fechaInicio" Type="DateTime" Precision="0" />
     <Property Name="Lugar" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Detalle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="dañosMateriales" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
@@ -100,7 +104,8 @@
     <Property Name="fechaFin" Type="DateTime" Precision="0" />
     <Property Name="Fotografia" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
     <Property Name="Costo" Type="Double" />
-    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DescripcionCierre" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
     <Property Name="idPoliza" Type="Int32" />
     <Property Name="idFuncionario" Type="Int32" />
     <NavigationProperty Name="DetalleGasto" Relationship="Self.FK__DetalleGa__idSin__239E4DCF" FromRole="Siniestro" ToRole="DetalleGasto" />

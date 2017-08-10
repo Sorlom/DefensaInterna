@@ -19,7 +19,7 @@
           <ScalarProperty Name="idCliente" ColumnName="idCliente" />
           <ScalarProperty Name="CI" ColumnName="CI" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="fechaNac" ColumnName="fechaNac" />
+          <ScalarProperty Name="Edad" ColumnName="Edad" />
           <ScalarProperty Name="estadoCivil" ColumnName="estadoCivil" />
           <ScalarProperty Name="Profesion" ColumnName="Profesion" />
           <ScalarProperty Name="Email" ColumnName="Email" />
@@ -54,6 +54,7 @@
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
           <ScalarProperty Name="Login" ColumnName="Login" />
           <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="fechaPass" ColumnName="fechaPass" />
           <ScalarProperty Name="idRol" ColumnName="idRol" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -62,6 +63,8 @@
       <EntityTypeMapping TypeName="BDProDefIntModel.polizaVehicular">
         <MappingFragment StoreEntitySet="polizaVehicular">
           <ScalarProperty Name="idPoliza" ColumnName="idPoliza" />
+          <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+          <ScalarProperty Name="fechaFin" ColumnName="fechaFin" />
           <ScalarProperty Name="Tipo" ColumnName="Tipo" />
           <ScalarProperty Name="Modelo" ColumnName="Modelo" />
           <ScalarProperty Name="Año" ColumnName="Año" />
@@ -69,6 +72,7 @@
           <ScalarProperty Name="Placa" ColumnName="Placa" />
           <ScalarProperty Name="Chasis" ColumnName="Chasis" />
           <ScalarProperty Name="Costo" ColumnName="Costo" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
           <ScalarProperty Name="idFuncionario" ColumnName="idFuncionario" />
           <ScalarProperty Name="idCliente" ColumnName="idCliente" />
           <ScalarProperty Name="idTipoPoliza" ColumnName="idTipoPoliza" />
@@ -97,6 +101,7 @@
           <ScalarProperty Name="Fotografia" ColumnName="Fotografia" />
           <ScalarProperty Name="Costo" ColumnName="Costo" />
           <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="DescripcionCierre" ColumnName="DescripcionCierre" />
           <ScalarProperty Name="idPoliza" ColumnName="idPoliza" />
           <ScalarProperty Name="idFuncionario" ColumnName="idFuncionario" />
         </MappingFragment>

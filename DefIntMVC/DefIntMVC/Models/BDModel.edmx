@@ -23,7 +23,7 @@
           <Property Name="idCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CI" Type="int" Nullable="false" />
           <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="fechaNac" Type="date" Nullable="false" />
+          <Property Name="Edad" Type="int" Nullable="false" />
           <Property Name="estadoCivil" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Profesion" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
@@ -35,17 +35,17 @@
           </Key>
           <Property Name="idDetalleGasto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Sepelio" Type="float" />
-          <Property Name="imagenSepelio" Type="image" />
+          <Property Name="imagenSepelio" Type="varbinary(max)" />
           <Property Name="atencionMedica" Type="float" />
-          <Property Name="imagenAtMedic" Type="image" />
+          <Property Name="imagenAtMedic" Type="varbinary(max)" />
           <Property Name="dañosPropiedad" Type="float" />
-          <Property Name="imagenDProp" Type="image" />
+          <Property Name="imagenDProp" Type="varbinary(max)" />
           <Property Name="muerteAccidente" Type="float" />
-          <Property Name="imagenMuerteAcc" Type="image" />
+          <Property Name="imagenMuerteAcc" Type="varbinary(max)" />
           <Property Name="perdidaTotal" Type="float" />
-          <Property Name="imagenPerdTotal" Type="image" />
+          <Property Name="imagenPerdTotal" Type="varbinary(max)" />
           <Property Name="reparacionVehicular" Type="float" />
-          <Property Name="imagenRepVehicular" Type="image" />
+          <Property Name="imagenRepVehicular" Type="varbinary(max)" />
           <Property Name="idSiniestro" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Funcionario">
@@ -56,6 +56,7 @@
           <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Login" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="Password" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="fechaPass" Type="datetime" Nullable="false" />
           <Property Name="idRol" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="polizaVehicular">
@@ -63,13 +64,16 @@
             <PropertyRef Name="idPoliza" />
           </Key>
           <Property Name="idPoliza" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fechaInicio" Type="datetime" />
+          <Property Name="fechaFin" Type="datetime" />
           <Property Name="Tipo" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Modelo" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Año" Type="int" Nullable="false" />
           <Property Name="Color" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Placa" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Chasis" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="Costo" Type="float" Nullable="false" />
+          <Property Name="Costo" Type="float" />
+          <Property Name="Estado" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="idFuncionario" Type="int" Nullable="false" />
           <Property Name="idCliente" Type="int" Nullable="false" />
           <Property Name="idTipoPoliza" Type="int" Nullable="false" />
@@ -87,15 +91,16 @@
             <PropertyRef Name="idSiniestro" />
           </Key>
           <Property Name="idSiniestro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="fechaInicio" Type="date" Nullable="false" />
+          <Property Name="fechaInicio" Type="date" />
           <Property Name="Lugar" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Detalle" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="dañosMateriales" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="dañosPersonales" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="fechaFin" Type="date" />
-          <Property Name="Fotografia" Type="image" Nullable="false" />
+          <Property Name="Fotografia" Type="varbinary(max)" Nullable="false" />
           <Property Name="Costo" Type="float" />
-          <Property Name="Estado" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Estado" Type="varchar" MaxLength="50" />
+          <Property Name="DescripcionCierre" Type="varchar" MaxLength="300" />
           <Property Name="idPoliza" Type="int" />
           <Property Name="idFuncionario" Type="int" />
         </EntityType>
@@ -252,7 +257,7 @@
           <Property Name="idCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CI" Type="Int32" Nullable="false" />
           <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="fechaNac" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Edad" Type="Int32" Nullable="false" />
           <Property Name="estadoCivil" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Profesion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
@@ -287,6 +292,7 @@
           <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Login" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaPass" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="idRol" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Roles" Relationship="Self.FK__Funcionar__idRol__173876EA" FromRole="Funcionario" ToRole="Roles" />
           <NavigationProperty Name="polizaVehicular" Relationship="Self.FK__polizaVeh__idFun__1B0907CE" FromRole="Funcionario" ToRole="polizaVehicular" />
@@ -297,13 +303,16 @@
             <PropertyRef Name="idPoliza" />
           </Key>
           <Property Name="idPoliza" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fechaInicio" Type="DateTime" Precision="3" />
+          <Property Name="fechaFin" Type="DateTime" Precision="3" />
           <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Modelo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Año" Type="Int32" Nullable="false" />
           <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Placa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Chasis" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Costo" Type="Double" Nullable="false" />
+          <Property Name="Costo" Type="Double" />
+          <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="idFuncionario" Type="Int32" Nullable="false" />
           <Property Name="idCliente" Type="Int32" Nullable="false" />
           <Property Name="idTipoPoliza" Type="Int32" Nullable="false" />
@@ -326,7 +335,7 @@
             <PropertyRef Name="idSiniestro" />
           </Key>
           <Property Name="idSiniestro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="fechaInicio" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="fechaInicio" Type="DateTime" Precision="0" />
           <Property Name="Lugar" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Detalle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="dañosMateriales" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
@@ -334,7 +343,8 @@
           <Property Name="fechaFin" Type="DateTime" Precision="0" />
           <Property Name="Fotografia" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
           <Property Name="Costo" Type="Double" />
-          <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DescripcionCierre" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
           <Property Name="idPoliza" Type="Int32" />
           <Property Name="idFuncionario" Type="Int32" />
           <NavigationProperty Name="DetalleGasto" Relationship="Self.FK__DetalleGa__idSin__239E4DCF" FromRole="Siniestro" ToRole="DetalleGasto" />
@@ -496,7 +506,7 @@
                 <ScalarProperty Name="idCliente" ColumnName="idCliente" />
                 <ScalarProperty Name="CI" ColumnName="CI" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="fechaNac" ColumnName="fechaNac" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
                 <ScalarProperty Name="estadoCivil" ColumnName="estadoCivil" />
                 <ScalarProperty Name="Profesion" ColumnName="Profesion" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
@@ -531,6 +541,7 @@
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="fechaPass" ColumnName="fechaPass" />
                 <ScalarProperty Name="idRol" ColumnName="idRol" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -539,6 +550,8 @@
             <EntityTypeMapping TypeName="BDProDefIntModel.polizaVehicular">
               <MappingFragment StoreEntitySet="polizaVehicular">
                 <ScalarProperty Name="idPoliza" ColumnName="idPoliza" />
+                <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+                <ScalarProperty Name="fechaFin" ColumnName="fechaFin" />
                 <ScalarProperty Name="Tipo" ColumnName="Tipo" />
                 <ScalarProperty Name="Modelo" ColumnName="Modelo" />
                 <ScalarProperty Name="Año" ColumnName="Año" />
@@ -546,6 +559,7 @@
                 <ScalarProperty Name="Placa" ColumnName="Placa" />
                 <ScalarProperty Name="Chasis" ColumnName="Chasis" />
                 <ScalarProperty Name="Costo" ColumnName="Costo" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
                 <ScalarProperty Name="idFuncionario" ColumnName="idFuncionario" />
                 <ScalarProperty Name="idCliente" ColumnName="idCliente" />
                 <ScalarProperty Name="idTipoPoliza" ColumnName="idTipoPoliza" />
@@ -574,6 +588,7 @@
                 <ScalarProperty Name="Fotografia" ColumnName="Fotografia" />
                 <ScalarProperty Name="Costo" ColumnName="Costo" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="DescripcionCierre" ColumnName="DescripcionCierre" />
                 <ScalarProperty Name="idPoliza" ColumnName="idPoliza" />
                 <ScalarProperty Name="idFuncionario" ColumnName="idFuncionario" />
               </MappingFragment>

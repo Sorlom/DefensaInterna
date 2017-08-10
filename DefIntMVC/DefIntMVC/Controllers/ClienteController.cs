@@ -46,7 +46,7 @@ namespace DefIntMVC.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idCliente,CI,Nombre,fechaNac,estadoCivil,Profesion,Email,Telefono")] Cliente cliente)
+        public ActionResult Create([Bind(Include = "idCliente,CI,Nombre,Edad,estadoCivil,Profesion,Email,Telefono")] Cliente cliente)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace DefIntMVC.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idCliente,CI,Nombre,fechaNac,estadoCivil,Profesion,Email,Telefono")] Cliente cliente)
+        public ActionResult Edit([Bind(Include = "idCliente,CI,Nombre,Edad,estadoCivil,Profesion,Email,Telefono")] Cliente cliente)
         {
             if (ModelState.IsValid)
             {

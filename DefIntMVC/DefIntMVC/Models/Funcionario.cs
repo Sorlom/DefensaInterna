@@ -25,6 +25,7 @@ namespace DefIntMVC.Models
         public string Nombre { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
+        public System.DateTime fechaPass { get; set; }
         public int idRol { get; set; }
     
         public virtual Roles Roles { get; set; }

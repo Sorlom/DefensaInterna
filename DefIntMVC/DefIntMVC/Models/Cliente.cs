@@ -23,7 +23,7 @@ namespace DefIntMVC.Models
         public int idCliente { get; set; }
         public int CI { get; set; }
         public string Nombre { get; set; }
-        public System.DateTime fechaNac { get; set; }
+        public int Edad { get; set; }
         public string estadoCivil { get; set; }
         public string Profesion { get; set; }
         public string Email { get; set; }
