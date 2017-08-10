@@ -54,6 +54,7 @@ namespace DefIntMVC.Controllers
         {
             if (ModelState.IsValid)
             {
+                polizaVehicular.Estado = "Proceso";
                 db.polizaVehicular.Add(polizaVehicular);
                 db.SaveChanges();
                 return RedirectToAction("Index");

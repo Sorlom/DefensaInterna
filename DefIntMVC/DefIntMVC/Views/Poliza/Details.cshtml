@@ -4,14 +4,14 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Detalles</h2>
 
 <div>
-    <h4>polizaVehicular</h4>
+    <h4>Poliza de Seguro Vehicular</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.fechaInicio)
+            @Html.DisplayName("Fecha Inicio")
         </dt>
 
         <dd>
@@ -19,7 +19,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.fechaFin)
+            @Html.DisplayName("Fecha Final")
         </dt>
 
         <dd>
@@ -91,7 +91,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Cliente.Nombre)
+            @Html.DisplayName("Nombre Cliente")
         </dt>
 
         <dd>
@@ -99,7 +99,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Funcionario.Nombre)
+            @Html.DisplayName("Nombre Funcionario")
         </dt>
 
         <dd>
@@ -107,7 +107,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.tipoPoliza.NombreTP)
+            @Html.DisplayName("Tipo Poliza")
         </dt>
 
         <dd>
@@ -117,6 +117,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.idPoliza }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.idPoliza }) |
+    @Html.ActionLink("Volver a la Lista", "Index")
 </p>

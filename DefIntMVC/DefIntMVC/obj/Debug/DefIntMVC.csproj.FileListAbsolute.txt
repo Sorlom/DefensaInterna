@@ -48,3 +48,4 @@ D:\Defensa Interna\DefensaInterna\DefIntMVC\DefIntMVC\bin\es\System.Web.WebPages
 D:\Defensa Interna\DefensaInterna\DefIntMVC\DefIntMVC\bin\es\System.Web.WebPages.Razor.resources.dll
 D:\Defensa Interna\DefensaInterna\DefIntMVC\DefIntMVC\obj\Debug\DefIntMVC.dll
 D:\Defensa Interna\DefensaInterna\DefIntMVC\DefIntMVC\obj\Debug\DefIntMVC.pdb
+D:\Defensa Interna\DefensaInterna\DefIntMVC\DefIntMVC\obj\Debug\DefIntMVC.csprojResolveAssemblyReference.cache
