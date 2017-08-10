@@ -4,14 +4,14 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Detalles</h2>
 
 <div>
-    <h4>DetalleGasto</h4>
+    <h4>Detalle de Gastos</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Sepelio)
+            @Html.DisplayName("Costo Sepelio")
         </dt>
 
         <dd>
@@ -19,15 +19,23 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.imagenSepelio)
+            @Html.DisplayName("Imagen Costo Sepelio")
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.imagenSepelio)
+            @{
+                var imgsrc1 = "../../x.jpg";
+                if (Model.imagenSepelio != null)
+                {
+                    var base641 = Convert.ToBase64String(Model.imagenSepelio);
+                    imgsrc1 = string.Format("data:image/gif;base64,{0}", base641);
+                }
+            }
+            <img src='@imgsrc1' style="max-width:150px;max-height:150px" />
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.atencionMedica)
+            @Html.DisplayName("Costo Atencion Medica")
         </dt>
 
         <dd>
@@ -35,15 +43,23 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.imagenAtMedic)
+            @Html.DisplayName("Imagen Costo Atencion Medica")
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.imagenAtMedic)
+            @{
+                var imgsrc2 = "../../x.jpg";
+                if (Model.imagenAtMedic != null)
+                {
+                    var base642 = Convert.ToBase64String(Model.imagenAtMedic);
+                    imgsrc2 = string.Format("data:image/gif;base64,{0}", base642);
+                }
+            }
+            <img src='@imgsrc2' style="max-width:150px;max-height:150px" />
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.dañosPropiedad)
+            @Html.DisplayName("Costo Daños Propiedad")
         </dt>
 
         <dd>
@@ -51,15 +67,23 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.imagenDProp)
+            @Html.DisplayName("Imagen Costo Daños Propiedad")
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.imagenDProp)
+            @{
+                var imgsrc3 = "../../x.jpg";
+                if (Model.imagenDProp != null)
+                {
+                    var base643 = Convert.ToBase64String(Model.imagenDProp);
+                    imgsrc3 = string.Format("data:image/gif;base64,{0}", base643);
+                }
+            }
+            <img src='@imgsrc3' style="max-width:150px;max-height:150px" />
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.muerteAccidente)
+            @Html.DisplayName("Costo Muerte Accidente")
         </dt>
 
         <dd>
@@ -67,15 +91,23 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.imagenMuerteAcc)
+            @Html.DisplayName("Imagen Costo Muerte Accidente")
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.imagenMuerteAcc)
+            @{
+                var imgsrc4 = "../../x.jpg";
+                if (Model.imagenMuerteAcc != null)
+                {
+                    var base644 = Convert.ToBase64String(Model.imagenMuerteAcc);
+                    imgsrc4 = string.Format("data:image/gif;base64,{0}", base644);
+                }
+            }
+            <img src='@imgsrc4' style="max-width:150px;max-height:150px" />
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.perdidaTotal)
+            @Html.DisplayName("Costo Perdida Total")
         </dt>
 
         <dd>
@@ -83,15 +115,23 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.imagenPerdTotal)
+            @Html.DisplayName("Imagen Costo Perdida Total"))
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.imagenPerdTotal)
+            @{
+                var imgsrc5 = "../../x.jpg";
+                if (Model.imagenPerdTotal != null)
+                {
+                    var base645 = Convert.ToBase64String(Model.imagenPerdTotal);
+                    imgsrc5 = string.Format("data:image/gif;base64,{0}", base645);
+                }
+            }
+            <img src='@imgsrc5' style="max-width:150px;max-height:150px" />
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.reparacionVehicular)
+            @Html.DisplayName("Costo Reparacion Vehicular")
         </dt>
 
         <dd>
@@ -99,24 +139,32 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.imagenRepVehicular)
+            @Html.DisplayName("Imagen Costo Reparacion Vehicular")
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.imagenRepVehicular)
+            @{
+                var imgsrc6 = "../../x.jpg";
+                if (Model.imagenRepVehicular != null)
+                {
+                    var base646 = Convert.ToBase64String(Model.imagenRepVehicular);
+                    imgsrc6 = string.Format("data:image/gif;base64,{0}", base646);
+                }
+            }
+            <img src='@imgsrc6' style="max-width:150px;max-height:150px" />
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Siniestro.Lugar)
+            @Html.DisplayName("Id Siniestro")
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Siniestro.Lugar)
+            @Html.DisplayFor(model => model.Siniestro.idSiniestro)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.idDetalleGasto }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.idDetalleGasto }) |
+    @Html.ActionLink("Volver a la Lista", "Index")
 </p>

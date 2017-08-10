@@ -140,6 +140,11 @@ set @ID = (select idPoliza from inserted)
 set @FecIniAcc = (select fechaInicio from inserted)
 set @FecFinAcc = (select fechaFin from inserted)
 set @CostoAcc = (select Costo from inserted)
+
+set @Tipo = (select Tipo from inserted)
+set @Marca = (select Modelo from inserted)
+set @Año = (select Año from inserted)
+
 set @Estado = 'Habilitado'
 
 if(@FecFinAcc is null and @FecFinAcc is null and @CostoAcc is null )
@@ -189,6 +194,9 @@ end
 
 -----prueba de trigger de poliza------------
 insert into polizaVehicular values (null,null,'Auto','Toyota',1994,'rojo','231-sds','caw54w825s',null,'',1,1,1)
+
+delete from polizaVehicular where idPoliza = 1
+DBCC CHECKIDENT (polizaVehicular, RESEED, 0)
 
 select * from polizaVehicular
 

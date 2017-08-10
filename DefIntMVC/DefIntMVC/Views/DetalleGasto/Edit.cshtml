@@ -4,10 +4,10 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<h2>Editar Gasto - Nivel de Cobertura: @TempData["TPoliza2"]</h2>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "DetalleGasto", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     
@@ -18,7 +18,7 @@
         @Html.HiddenFor(model => model.idDetalleGasto)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Sepelio, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Sepelio, "Costo Sepelio",htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Sepelio, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Sepelio, "", new { @class = "text-danger" })
@@ -26,15 +26,16 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.imagenSepelio, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.imagenSepelio, "Imagen Costo Sepelio",htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.imagenSepelio, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.imagenSepelio, "", new { @class = "text-danger" })
+                <input type="file" id="image1" name="image1" />
+                @*@Html.EditorFor(model => model.imagenSepelio, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.imagenSepelio, "", new { @class = "text-danger" })*@
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.atencionMedica, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.atencionMedica,"Costo Atencion Medica", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.atencionMedica, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.atencionMedica, "", new { @class = "text-danger" })
@@ -42,15 +43,16 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.imagenAtMedic, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.imagenAtMedic,"Imagen Costo Atencion Medica", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.imagenAtMedic, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.imagenAtMedic, "", new { @class = "text-danger" })
+                <input type="file" id="image2" name="image2" />
+                @*@Html.EditorFor(model => model.imagenAtMedic, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.imagenAtMedic, "", new { @class = "text-danger" })*@
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.dañosPropiedad, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.dañosPropiedad, "Costo Daños Propiedad", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.dañosPropiedad, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.dañosPropiedad, "", new { @class = "text-danger" })
@@ -58,15 +60,16 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.imagenDProp, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.imagenDProp, "Imagen Costo Daños Propiedad", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.imagenDProp, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.imagenDProp, "", new { @class = "text-danger" })
+                <input type="file" id="image3" name="image3" />
+                @*@Html.EditorFor(model => model.imagenDProp, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.imagenDProp, "", new { @class = "text-danger" })*@
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.muerteAccidente, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.muerteAccidente, "Costo Muerte Accidente", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.muerteAccidente, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.muerteAccidente, "", new { @class = "text-danger" })
@@ -74,15 +77,17 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.imagenMuerteAcc, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.imagenMuerteAcc, "Imagen Costo Muerte Accidente", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.imagenMuerteAcc, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.imagenMuerteAcc, "", new { @class = "text-danger" })
+                <input type="file" id="image4" name="image4" />
+                @*@Html.EditorFor(model => model.imagenMuerteAcc, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.imagenMuerteAcc, "", new { @class = "text-danger" })*@
             </div>
         </div>
-
+        @if (TempData["TPoliza2"] != null && (int.Parse(TempData["TPoliza2"].ToString()) == 2 || int.Parse(TempData["TPoliza2"].ToString()) == 3))
+        {
         <div class="form-group">
-            @Html.LabelFor(model => model.perdidaTotal, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.perdidaTotal, "Costo Perdida Total", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.perdidaTotal, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.perdidaTotal, "", new { @class = "text-danger" })
@@ -90,36 +95,41 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.imagenPerdTotal, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.imagenPerdTotal, "Imagen Costo Perdida Total", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.imagenPerdTotal, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.imagenPerdTotal, "", new { @class = "text-danger" })
+                <input type="file" id="image5" name="image5" />
+                @*@Html.EditorFor(model => model.imagenPerdTotal, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.imagenPerdTotal, "", new { @class = "text-danger" })*@
             </div>
         </div>
+            if (int.Parse(TempData["TPoliza2"].ToString()) == 3)
+            {
+                <div class="form-group">
+                    @Html.LabelFor(model => model.reparacionVehicular, "Costo Reparacion Vehicular", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.reparacionVehicular, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.reparacionVehicular, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.reparacionVehicular, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.reparacionVehicular, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.reparacionVehicular, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.imagenRepVehicular, "Imagen Costo Reparacion Vehicular", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <input type="file" id="image6" name="image6" />
+                        @*@Html.EditorFor(model => model.imagenRepVehicular, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.imagenRepVehicular, "", new { @class = "text-danger" })*@
+                    </div>
+                </div>
+            }
+        }
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.imagenRepVehicular, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.imagenRepVehicular, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.imagenRepVehicular, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(model => model.idSiniestro, "idSiniestro", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("idSiniestro", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.idSiniestro, "", new { @class = "text-danger" })
             </div>
-        </div>
+        </div>*@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">

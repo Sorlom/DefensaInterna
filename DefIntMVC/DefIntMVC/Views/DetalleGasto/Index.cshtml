@@ -4,100 +4,148 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Lista de Gastos</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Sepelio)
+            @Html.DisplayName("Costo Sepelio")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.imagenSepelio)
+            @Html.DisplayName("Imagen Costo Sepelio")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.atencionMedica)
+            @Html.DisplayName("Costo Atencion Medica")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.imagenAtMedic)
+            @Html.DisplayName("Imagen Costo Atencion Medica")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.dañosPropiedad)
+            @Html.DisplayName("Costo Daños Propiedad")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.imagenDProp)
+            @Html.DisplayName("Imagen Costo Daños Propiedad")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.muerteAccidente)
+            @Html.DisplayName("Costo Muerte Accidente")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.imagenMuerteAcc)
+            @Html.DisplayName("Imagen Costo Muerte Accidente")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.perdidaTotal)
+            @Html.DisplayName("Costo Perdida Total")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.imagenPerdTotal)
+            @Html.DisplayName("Imagen Costo Perdida Total")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.reparacionVehicular)
+            @Html.DisplayName("Costo Reparacion Vehicular")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.imagenRepVehicular)
+            @Html.DisplayName("Imagen Costo Reparacion Vehicular")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Siniestro.Lugar)
+            @Html.DisplayName("Id Siniestro")
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Sepelio)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.imagenSepelio)
+            @{ 
+                var imgsrc1 = "../../x.jpg";
+                if (item.imagenSepelio != null)
+                {
+                    var base641 = Convert.ToBase64String(item.imagenSepelio);
+                    imgsrc1 = string.Format("data:image/gif;base64,{0}", base641);
+                }
+            }
+            <img src='@imgsrc1' style="max-width:150px;max-height:150px" />
+            
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.atencionMedica)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.imagenAtMedic)
+            @{
+                var imgsrc2 = "../../x.jpg";
+                if (item.imagenAtMedic != null)
+                {
+                    var base642 = Convert.ToBase64String(item.imagenAtMedic);
+                    imgsrc2 = string.Format("data:image/gif;base64,{0}", base642);
+                }
+            }
+            <img src='@imgsrc2' style="max-width:150px;max-height:150px" />
+           
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.dañosPropiedad)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.imagenDProp)
+            @{
+                var imgsrc3 = "../../x.jpg";
+                if (item.imagenDProp != null)
+                {
+                    var base643 = Convert.ToBase64String(item.imagenDProp);
+                    imgsrc3 = string.Format("data:image/gif;base64,{0}", base643);
+                }
+            }
+            <img src='@imgsrc3' style="max-width:150px;max-height:150px" />
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.muerteAccidente)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.imagenMuerteAcc)
+            @{
+                var imgsrc4 = "../../x.jpg";
+                if (item.imagenMuerteAcc != null)
+                {
+                    var base644 = Convert.ToBase64String(item.imagenMuerteAcc);
+                    imgsrc4 = string.Format("data:image/gif;base64,{0}", base644);
+                }
+            }
+            <img src='@imgsrc4' style="max-width:150px;max-height:150px" />
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.perdidaTotal)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.imagenPerdTotal)
+            @{
+                var imgsrc5 = "../../x.jpg";
+                if (item.imagenPerdTotal != null)
+                {
+                    var base645 = Convert.ToBase64String(item.imagenPerdTotal);
+                    imgsrc5 = string.Format("data:image/gif;base64,{0}", base645);
+                }
+            }
+            <img src='@imgsrc5' style="max-width:150px;max-height:150px" />
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.reparacionVehicular)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.imagenRepVehicular)
+            @{
+                var imgsrc6 = "../../x.jpg";
+                if (item.imagenRepVehicular != null)
+                {
+                    var base646 = Convert.ToBase64String(item.imagenRepVehicular);
+                    imgsrc6 = string.Format("data:image/gif;base64,{0}", base646);
+                }
+            }
+            <img src='@imgsrc6' style="max-width:150px;max-height:150px" />
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Siniestro.Lugar)
+            @Html.DisplayFor(modelItem => item.Siniestro.idSiniestro)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idDetalleGasto }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idDetalleGasto }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idDetalleGasto })
+            @Html.ActionLink("Editar", "Edit", new { id=item.idDetalleGasto }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.idDetalleGasto }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.idDetalleGasto })
         </td>
     </tr>
 }

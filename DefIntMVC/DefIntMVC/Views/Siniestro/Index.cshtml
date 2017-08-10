@@ -4,15 +4,15 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Lista de Siniestros</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear Nuevo", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.fechaInicio)
+           @Html.DisplayName("Fecha Inicio")
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Lugar)
@@ -21,14 +21,11 @@
             @Html.DisplayNameFor(model => model.Detalle)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.dañosMateriales)
+            @Html.DisplayName("Daños Materiales")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.dañosPersonales)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.fechaFin)
-        </th>
+            @Html.DisplayName("Daños Personales")
+        </th>      
         <th>
             @Html.DisplayNameFor(model => model.Fotografia)
         </th>
@@ -39,18 +36,22 @@
             @Html.DisplayNameFor(model => model.Estado)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DescripcionCierre)
+            @Html.DisplayName("Funcionario")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Funcionario.Nombre)
+            @Html.DisplayNameFor(model => model.polizaVehicular.Placa)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.polizaVehicular.Tipo)
+            @Html.DisplayName("Fecha Fin")
+        </th>
+        <th>
+            @Html.DisplayName("Descripcion Cierre")
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.fechaInicio)
@@ -68,10 +69,12 @@
             @Html.DisplayFor(modelItem => item.dañosPersonales)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.fechaFin)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Fotografia)
+            @*@Html.DisplayFor(modelItem => item.Fotografia)*@
+            @{
+                var base64 = Convert.ToBase64String(item.Fotografia);
+                var imgsrc = string.Format("data:image/gif;base64,{0}", base64);
+             }
+            <img src='@imgsrc' style="max-width:150px;max-height:150px"/>
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Costo)
@@ -80,18 +83,23 @@
             @Html.DisplayFor(modelItem => item.Estado)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.DescripcionCierre)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Funcionario.Nombre)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.polizaVehicular.Tipo)
+            @Html.DisplayFor(modelItem => item.polizaVehicular.Placa)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idSiniestro }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idSiniestro }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idSiniestro })
+            @Html.DisplayFor(modelItem => item.fechaFin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DescripcionCierre)
+        </td>
+        <td>
+            @Html.ActionLink("Gastos", "Gastos", new { id = item.idPoliza })|
+            @Html.ActionLink("Cerrar", "Cerrar", new { id = item.idSiniestro }) |
+            @Html.ActionLink("Editar", "Edit", new { id=item.idSiniestro }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.idSiniestro })|
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.idSiniestro })
         </td>
     </tr>
 }

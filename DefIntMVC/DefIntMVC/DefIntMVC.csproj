@@ -397,6 +397,7 @@
     <Content Include="Views\DetalleGasto\Details.cshtml" />
     <Content Include="Views\DetalleGasto\Edit.cshtml" />
     <Content Include="Views\DetalleGasto\Index.cshtml" />
+    <Content Include="Views\Siniestro\Cerrar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

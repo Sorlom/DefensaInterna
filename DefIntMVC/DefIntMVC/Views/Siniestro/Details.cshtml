@@ -4,14 +4,14 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Detalles</h2>
 
 <div>
     <h4>Siniestro</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.fechaInicio)
+            @Html.DisplayName("Fecha Inicio")
         </dt>
 
         <dd>
@@ -35,7 +35,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.dañosMateriales)
+            @Html.DisplayName("Daños Materiales")
         </dt>
 
         <dd>
@@ -43,7 +43,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.dañosPersonales)
+            @Html.DisplayName("Daños Personales")
         </dt>
 
         <dd>
@@ -51,19 +51,16 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.fechaFin)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.fechaFin)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.Fotografia)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Fotografia)
+            @*@Html.DisplayFor(modelItem => item.Fotografia)*@
+            @{
+                var base64 = Convert.ToBase64String(Model.Fotografia);
+                var imgsrc = string.Format("data:image/gif;base64,{0}", base64);
+            }
+            <img src='@imgsrc' style="max-width:150px;max-height:150px" />
         </dd>
 
         <dt>
@@ -83,14 +80,6 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DescripcionCierre)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DescripcionCierre)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.Funcionario.Nombre)
         </dt>
 
@@ -99,16 +88,32 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.polizaVehicular.Tipo)
+            @Html.DisplayName("Placa")
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.polizaVehicular.Tipo)
+            @Html.DisplayFor(model => model.polizaVehicular.Placa)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Fecha Fin")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaFin)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Descripcion Cierre")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DescripcionCierre)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.idSiniestro }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.idSiniestro }) |
+    @Html.ActionLink("Volver a la Lista", "Index")
 </p>
