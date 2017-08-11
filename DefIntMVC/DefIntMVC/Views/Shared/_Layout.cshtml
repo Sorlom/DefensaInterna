@@ -22,12 +22,33 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Cliente", "Index", "Cliente")</li>
-                    <li>@Html.ActionLink("Poliza", "Index", "Poliza")</li>
-                    <li>@Html.ActionLink("Siniestro", "Index", "Siniestro")</li>
-                    <li>@Html.ActionLink("Detalle Gastos", "Index", "DetalleGasto")</li>
-                    <li>@Html.ActionLink("Bitacora", "Index", "Bitacora")</li>
-                    <li>@Html.ActionLink("Reportes", "Index", "Report")</li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (User.IsInRole("R1") || User.IsInRole("R2"))
+                        {
+                            <li>@Html.ActionLink("Cliente", "Index", "Cliente")</li>
+                            <li>@Html.ActionLink("Poliza", "Index", "Poliza")</li>
+                        }
+                        if (User.IsInRole("R1") || User.IsInRole("R3"))
+                        {
+                            <li>@Html.ActionLink("Siniestro", "Index", "Siniestro")</li>
+                            <li>@Html.ActionLink("Detalle Gastos", "Index", "DetalleGasto")</li>
+                        }
+                        if (User.IsInRole("R1"))
+                        {
+                            <li>@Html.ActionLink("Bitacora", "Index", "Bitacora")</li>
+                        }
+                        if (User.IsInRole("R1") || User.IsInRole("R4"))
+                        {
+                            <li>@Html.ActionLink("Reportes", "Index", "Report")</li>
+                        }
+                    <li><a href="#">Bienvenido Usuario: @User.Identity.Name</a></li>
+                    <li>@Html.ActionLink("Logout", "Logout", "Login")</li>
+                    }
+                    else
+                    {
+                    <li>@Html.ActionLink("Login", "Index", "Login")</li>
+                    }
 
                 </ul>
             </div>

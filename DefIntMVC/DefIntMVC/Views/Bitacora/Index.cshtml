@@ -4,11 +4,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Bitacora</h2>
+<p>Aqui se puede visualizar todos los cambios dentro del sistema</p>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     <tr>
         <th>
@@ -45,11 +44,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.aplicacion)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.codbit }) |
-            @Html.ActionLink("Details", "Details", new { id=item.codbit }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.codbit })
         </td>
     </tr>
 }

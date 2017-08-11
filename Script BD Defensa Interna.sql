@@ -255,11 +255,10 @@ end
 -----prueba de trigger de poliza------------
 insert into Siniestro values (null,'Av San Martin','Choque contra otro vehiculo de frente','Frente del vehiculo','Trauma en la cabeza',null,'',null,null,null,2,1)
 
-select * from tipoPoliza
-
+select * from Funcionario
 drop trigger tg_Fecha_Siniestro
 ------------------------------------------------Views---------------------------------------------
---------------------------------------------------------------View Reporte 1-------------------------------------------
+-------------------------------------------------------View Reporte 1-------------------------------------------
 Create View View_Report1
 as
 select pv.idPoliza as IDPoliza, Tipo, Modelo, Año, Color, Placa, Chasis, NombreTP from polizaVehicular  pv
@@ -276,5 +275,137 @@ select idSiniestro as IDSiniestro, fechaInicio as FechaInicio, fechaFin as Ficha
 Create View View_Report4
 as
 Select * from detalleGasto where idSiniestro = 1
---------------------------------------------------------------Procedimientos almacenados para los reportes-----------------------------------------------------------------------------------------
+--------------------------------------------------------------Triggers para Bitacora-----------------------------------------------------------------------------------------
+create trigger tg_alta_Cliente on Cliente for insert
+as
+declare @Nom as varchar(30)
+declare @Codclie as int
+set @Nom = (select Nombre from inserted)
+set @Codclie = (select idCliente from inserted)
+insert into Bitacora values('Se guardo Cliente: '+@Nom+' con id: '+convert(char(10),@Codclie),GETDATE(),HOST_NAME(),SYSTEM_USER,APP_NAME())
+go
+create trigger tg_baja_Cliente on Cliente for delete
+as
+declare @Nom as varchar(30)
+declare @Codclie as int
+set @Nom = (select Nombre from inserted)
+set @Codclie = (select idCliente from inserted)
+insert into Bitacora values('Se elimino Cliente: '+@Nom+' con id: '+convert(char(10),@Codclie),GETDATE(),HOST_NAME(),SYSTEM_USER,APP_NAME())
+go
+create trigger tg_Mod_Cliente on Cliente for update
+as
+declare @Nom as varchar(30)
+declare @Codclie as int
+set @Nom = (select Nombre from inserted)
+set @Codclie = (select idCliente from inserted)
+insert into Bitacora values('Se modifico Cliente: '+@Nom+' con id: '+convert(char(10),@Codclie),GETDATE(),HOST_NAME(),SYSTEM_USER,APP_NAME())
 
+create trigger tg_alta_Poliza on polizaVehicular for insert
+as
+declare @Nom as varchar(30)
+declare @Codclie as int
+set @Nom = (select Chasis from inserted)
+set @Codclie = (select idPoliza from inserted)
+insert into Bitacora values('Se guardo Poliza Vehicular con Chasis: '+@Nom+' con id: '+convert(char(10),@Codclie),GETDATE(),HOST_NAME(),SYSTEM_USER,APP_NAME())
+go
+create trigger tg_baja_Poliza on polizaVehicular for delete
+as
+declare @Nom as varchar(30)
+declare @Codclie as int
+set @Nom = (select Chasis from inserted)
+set @Codclie = (select idPoliza from inserted)
+insert into Bitacora values('Se elimino Poliza Vehicular con Chasis: '+@Nom+' con id: '+convert(char(10),@Codclie),GETDATE(),HOST_NAME(),SYSTEM_USER,APP_NAME())
+go
+create trigger tg_Mod_Poliza on polizaVehicular for update
+as
+declare @Nom as varchar(30)
+declare @Codclie as int
+set @Nom = (select Chasis from inserted)
+set @Codclie = (select idPoliza from inserted)
+insert into Bitacora values('Se modifico Poliza Vehicular con Chasis: '+@Nom+' con id: '+convert(char(10),@Codclie),GETDATE(),HOST_NAME(),SYSTEM_USER,APP_NAME())
+
+create trigger tg_alta_Siniestro on Siniestro for insert
+as
+declare @Nom as varchar(50)
+declare @Nom2 as varchar(50)
+declare @Codclie as int
+declare @CodVe as int
+set @Nom = (select Lugar from inserted)
+set @Codclie = (select idSiniestro from inserted)
+set @CodVe = (select idPoliza from inserted)
+set @Nom2 = (select Detalle from inserted)
+insert into Bitacora values('Se guardo Siniestro en el Lugar: '+@Nom+' con detalle: '+@Nom2+', con el ID de Poliza:  '+convert(char(10),@CodVe)+', con el Id: '+convert(char(10),@Codclie),GETDATE(),HOST_NAME(),SYSTEM_USER,APP_NAME())
+go
+create trigger tg_baja_Siniestro on Siniestro for delete
+as
+declare @Nom as varchar(50)
+declare @Nom2 as varchar(50)
+declare @Codclie as int
+declare @CodVe as int
+set @Nom = (select Lugar from inserted)
+set @Codclie = (select idSiniestro from inserted)
+set @CodVe = (select idPoliza from inserted)
+set @Nom2 = (select Detalle from inserted)
+insert into Bitacora values('Se Elemino Siniestro en el Lugar: '+@Nom+' con detalle: '+@Nom2+', con el ID de Poliza:  '+convert(char(10),@CodVe)+', con el Id: '+convert(char(10),@Codclie),GETDATE(),HOST_NAME(),SYSTEM_USER,APP_NAME())
+go
+create trigger tg_Mod_Siniestro on Siniestro for update
+as
+declare @Nom as varchar(50)
+declare @Nom2 as varchar(50)
+declare @Codclie as int
+declare @CodVe as int
+set @Nom = (select Lugar from inserted)
+set @Codclie = (select idSiniestro from inserted)
+set @CodVe = (select idPoliza from inserted)
+set @Nom2 = (select Detalle from inserted)
+insert into Bitacora values('Se Modifico Siniestro en el Lugar: '+@Nom+' con detalle: '+@Nom2+', con el ID de Poliza:  '+convert(char(10),@CodVe)+', con el Id: '+convert(char(10),@Codclie),GETDATE(),HOST_NAME(),SYSTEM_USER,APP_NAME())
+
+
+create trigger tg_alta_Gastos on DetalleGasto for insert
+as
+declare @CodSin as int
+declare @Codclie as int
+set @CodSin = (select idSiniestro from inserted)
+set @Codclie = (select idDetalleGasto from inserted)
+insert into Bitacora values('Se guardo Detalle de Gastos del siniestro con id : '+convert(char(10),@CodSin)+', con id del Gasto: '+convert(char(10),@Codclie),GETDATE(),HOST_NAME(),SYSTEM_USER,APP_NAME())
+go
+create trigger tg_baja_Gastos on DetalleGasto for delete
+as
+declare @CodSin as int
+declare @Codclie as int
+set @CodSin = (select idSiniestro from inserted)
+set @Codclie = (select idDetalleGasto from inserted)
+insert into Bitacora values('Se elimino Detalle de Gastos del siniestro con id : '+convert(char(10),@CodSin)+', con id del Gasto: '+convert(char(10),@Codclie),GETDATE(),HOST_NAME(),SYSTEM_USER,APP_NAME())
+go
+create trigger tg_Mod_Gastos on DetalleGasto for update
+as
+declare @CodSin as int
+declare @Codclie as int
+set @CodSin = (select idSiniestro from inserted)
+set @Codclie = (select idDetalleGasto from inserted)
+insert into Bitacora values('Se modifico Detalle de Gastos del siniestro con id : '+convert(char(10),@CodSin)+', con id del Gasto: '+convert(char(10),@Codclie),GETDATE(),HOST_NAME(),SYSTEM_USER,APP_NAME())
+-------------------------------------------------------------------------------------------------Tareas Programadas----------------------------------------------------------------
+
+create procedure SPBackupTotal
+as
+	begin	
+		declare @Fec date
+		declare @nom varchar(50)	
+		set @Fec = SYSDATETIME()
+		set @nom = 'C:\FINAL\CopyBDProDefIntTotal - '+(CONVERT(varchar(30),@Fec))+'.bak' 
+		backup database BDProDefInt
+		to Disk = @nom
+		with CHECKSUM
+end
+create procedure SPBackupDiferencial
+as
+	begin	
+		declare @Fec date
+		declare @nom varchar(50)	
+		set @Fec = SYSDATETIME()
+		set @nom = 'C:\FINAL\CopyBDProDefIntTotal - '+(CONVERT(varchar(30),@Fec))+'.bak'
+		backup database BDProDefInt
+		to Disk = @nom
+		with DIFFERENTIAL
+end
+------------------------------------------------------------------------------------------------------------------------------------------------

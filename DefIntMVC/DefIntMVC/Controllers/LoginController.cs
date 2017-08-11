@@ -7,6 +7,9 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DefIntMVC.Models;
+using System.Web.Security;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace DefIntMVC.Controllers
 {
@@ -15,118 +18,54 @@ namespace DefIntMVC.Controllers
         private BDProDefIntEntities db = new BDProDefIntEntities();
 
         // GET: Login
+        [AllowAnonymous]
         public ActionResult Index()
         {
-            var funcionario = db.Funcionario.Include(f => f.Roles);
-            return View(funcionario.ToList());
-        }
-
-        // GET: Login/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
+            if (TempData["DErr"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                ViewBag.Msg = TempData["DErr"].ToString();
             }
-            Funcionario funcionario = db.Funcionario.Find(id);
-            if (funcionario == null)
-            {
-                return HttpNotFound();
-            }
-            return View(funcionario);
-        }
-
-        // GET: Login/Create
-        public ActionResult Create()
-        {
-            ViewBag.idRol = new SelectList(db.Roles, "idRol", "Nombre");
             return View();
         }
-
-        // POST: Login/Create
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
-        // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
+        [AllowAnonymous]
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idFuncionario,Nombre,Login,Password,fechaPass,idRol")] Funcionario funcionario)
+        public ActionResult Index(FormCollection fc)
         {
-            if (ModelState.IsValid)
-            {
-                db.Funcionario.Add(funcionario);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
 
-            ViewBag.idRol = new SelectList(db.Roles, "idRol", "Nombre", funcionario.idRol);
-            return View(funcionario);
+            string acc = fc["Nom"].ToString();
+            string pass = GetMD5(fc["Pass"].ToString());
+            TempData["Login"] = acc;
+
+            var count = db.Funcionario.Where(x => x.Login == acc && x.Password == pass).Count();
+ 
+            if (count== 0)
+            {
+                ViewBag.Msg = "Usuario Invalido";
+                return View();               
+            }
+            else
+            {
+                FormsAuthentication.SetAuthCookie(acc, false);
+                return RedirectToAction("Index", "Home");
+            }
         }
-
-        // GET: Login/Edit/5
-        public ActionResult Edit(int? id)
+        [AllowAnonymous]
+        public ActionResult Logout()
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Funcionario funcionario = db.Funcionario.Find(id);
-            if (funcionario == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.idRol = new SelectList(db.Roles, "idRol", "Nombre", funcionario.idRol);
-            return View(funcionario);
+            TempData["Login"] = "";
+            TempData["IDlogin"] = "";
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Login");
         }
-
-        // POST: Login/Edit/5
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
-        // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idFuncionario,Nombre,Login,Password,fechaPass,idRol")] Funcionario funcionario)
+        public string GetMD5(string str)
         {
-            if (ModelState.IsValid)
-            {
-                db.Entry(funcionario).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.idRol = new SelectList(db.Roles, "idRol", "Nombre", funcionario.idRol);
-            return View(funcionario);
-        }
-
-        // GET: Login/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Funcionario funcionario = db.Funcionario.Find(id);
-            if (funcionario == null)
-            {
-                return HttpNotFound();
-            }
-            return View(funcionario);
-        }
-
-        // POST: Login/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Funcionario funcionario = db.Funcionario.Find(id);
-            db.Funcionario.Remove(funcionario);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
+            MD5 md5 = MD5CryptoServiceProvider.Create();
+            ASCIIEncoding encoding = new ASCIIEncoding();
+            byte[] stream = null;
+            StringBuilder sb = new StringBuilder();
+            stream = md5.ComputeHash(encoding.GetBytes(str));
+            for (int i = 0; i < stream.Length; i++) sb.AppendFormat("{0:x2}", stream[i]);
+            return sb.ToString();
         }
     }
 }

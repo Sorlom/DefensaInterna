@@ -10,6 +10,7 @@ using DefIntMVC.Models;
 
 namespace DefIntMVC.Controllers
 {
+    [Authorize(Roles = "R1,R3")]
     public class DetalleGastoController : Controller
     {
         private BDProDefIntEntities db = new BDProDefIntEntities();
@@ -65,7 +66,7 @@ namespace DefIntMVC.Controllers
                 if (image3 != null)
                 {
                     detalleGasto.imagenDProp = new byte[image3.ContentLength];
-                    image2.InputStream.Read(detalleGasto.imagenDProp, 0, image3.ContentLength);
+                    image3.InputStream.Read(detalleGasto.imagenDProp, 0, image3.ContentLength);
                 }
                 if (image4 != null)
                 {

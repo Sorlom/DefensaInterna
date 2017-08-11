@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace DefIntMVC.Controllers
 {
+    [Authorize(Roles = "R1,R4")]
     public class ReportController : Controller
     {
         private BDProDefIntEntities db = new BDProDefIntEntities();

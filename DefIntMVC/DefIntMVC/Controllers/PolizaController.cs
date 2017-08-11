@@ -10,6 +10,7 @@ using DefIntMVC.Models;
 
 namespace DefIntMVC.Controllers
 {
+    [Authorize(Roles = "R1,R2")]
     public class PolizaController : Controller
     {
         private BDProDefIntEntities db = new BDProDefIntEntities();
