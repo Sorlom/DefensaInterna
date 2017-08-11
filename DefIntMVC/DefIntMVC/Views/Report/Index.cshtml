@@ -2,8 +2,92 @@
 @{
     ViewBag.Title = "Index";
 }
+<h2>Lista de Reportes</h2>
 
-<h2>Index</h2>
+@{
+            List<SelectListItem> ListTipo = new List<SelectListItem>();
+            ListTipo.Add(new SelectListItem
+            {
+                Text = "Responsabilidad Civil",
+                Value = "Responsabilidad Civil"
+            });
+            ListTipo.Add(new SelectListItem
+            {
+                Text = "Perdida Total",
+                Value = "Perdida Total"
+            });
+            ListTipo.Add(new SelectListItem
+            {
+                Text = "Todo Riesgo",
+                Value = "Todo Riesgo"
+            });
+            
+}
 
-@Html.ActionLink("PDF","ExportTo", new { ReportType = "PDF"})
+@using (Html.BeginForm("Report1", "Report", FormMethod.Post))
+{
+    
+    <h4>Primer Reporte</h4>
+    <hr />
+    <p>Lista de vehiculos asegurados por tipo de poliza.</p>
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.DropDownList("reportName", ListTipo, htmlAttributes: new { @class = "form-control" })
+                <input type="submit" value="Generar Reporte" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+    <hr />
+}
+
+@using (Html.BeginForm("Report2", "Report", FormMethod.Post))
+{
+    <h4>Segundo Reporte</h4>
+    <hr />
+    <p>Lista de siniestros abiertos.</p>
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.TextBox("reportName", null, new { @class = "form-control" })
+                <input type="submit" value="Generar Reporte" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+    <hr />
+}
+
+@using (Html.BeginForm("Report3", "Report", FormMethod.Post))
+{
+    <h4>Tercer Reporte</h4>
+    <hr />
+    <p>Lista de siniestros cerrados.</p>
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.TextBox("reportName", null, new { @class = "form-control" })
+                <input type="submit" value="Generar Reporte" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+    <hr />
+}
+
+@using (Html.BeginForm("Report4", "Report", FormMethod.Post))
+{
+    <h4>Cuarto Reporte</h4>
+    <hr />
+    <p>Lista de gastos con las imagenes asociadas de las facturas por ID del siniestro.</p>
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.TextBox("reportName", null, new { @class = "form-control", @type = "number" })
+                <input type="submit" value="Generar Reporte" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+    <hr />
+}
+
+
 

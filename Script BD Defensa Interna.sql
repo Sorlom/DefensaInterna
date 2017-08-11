@@ -255,8 +255,26 @@ end
 -----prueba de trigger de poliza------------
 insert into Siniestro values (null,'Av San Martin','Choque contra otro vehiculo de frente','Frente del vehiculo','Trauma en la cabeza',null,'',null,null,null,2,1)
 
-select * from Siniestro
+select * from tipoPoliza
 
 drop trigger tg_Fecha_Siniestro
+------------------------------------------------Views---------------------------------------------
+--------------------------------------------------------------View Reporte 1-------------------------------------------
+Create View View_Report1
+as
+select pv.idPoliza as IDPoliza, Tipo, Modelo, Año, Color, Placa, Chasis, NombreTP from polizaVehicular  pv
+		inner join tipoPoliza tp on pv.idTipoPoliza = tp.idTipoPoliza
+--------------------------------------------------------------View Reporte 2--------------------------------------------
+Create View View_Report2
+as
+select idSiniestro as IDSiniestro, fechaInicio as FechaInicio, Lugar, Detalle, dañosMateriales as DañosMateriales, dañosPersonales as DañosPersonales, Fotografia, Costo, Estado from Siniestro where Estado = 'Abierto'
+--------------------------------------------------------------View Reporte 3----------------------------------------------
+Create View View_Report3
+as
+select idSiniestro as IDSiniestro, fechaInicio as FechaInicio, fechaFin as FichaFin, Lugar, Detalle, dañosMateriales as DañosMateriales, dañosPersonales as DañosPersonales, Fotografia, Costo, Estado, DescripcionCierre from Siniestro 
+--------------------------------------------------------------View Reporte 4---------------------------------------------
+Create View View_Report4
+as
+Select * from detalleGasto where idSiniestro = 1
+--------------------------------------------------------------Procedimientos almacenados para los reportes-----------------------------------------------------------------------------------------
 
-------------------------------------------------------------------------------------------------------------

@@ -141,6 +141,7 @@
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\DetalleGastoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PolizaController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\SiniestroController.cs" />
@@ -430,6 +431,8 @@
     <Content Include="Views\DetalleGasto\Index.cshtml" />
     <Content Include="Views\Siniestro\Cerrar.cshtml" />
     <Content Include="Views\Report\Index.cshtml" />
+    <Content Include="Views\Login\Create.cshtml" />
+    <Content Include="Views\Login\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -443,6 +446,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Reports\Report1.rdlc" />
+    <EmbeddedResource Include="Reports\Report2.rdlc" />
+    <EmbeddedResource Include="Reports\Report3.rdlc" />
+    <EmbeddedResource Include="Reports\Report4.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
