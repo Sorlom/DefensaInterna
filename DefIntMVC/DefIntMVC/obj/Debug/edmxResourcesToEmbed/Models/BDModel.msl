@@ -116,5 +116,71 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="View_Report1">
+      <EntityTypeMapping TypeName="BDProDefIntModel.View_Report1">
+        <MappingFragment StoreEntitySet="View_Report1">
+          <ScalarProperty Name="NombreTP" ColumnName="NombreTP" />
+          <ScalarProperty Name="Chasis" ColumnName="Chasis" />
+          <ScalarProperty Name="Placa" ColumnName="Placa" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="Año" ColumnName="Año" />
+          <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="IDPoliza" ColumnName="IDPoliza" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="View_Report2">
+      <EntityTypeMapping TypeName="BDProDefIntModel.View_Report2">
+        <MappingFragment StoreEntitySet="View_Report2">
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Costo" ColumnName="Costo" />
+          <ScalarProperty Name="Fotografia" ColumnName="Fotografia" />
+          <ScalarProperty Name="DañosPersonales" ColumnName="DañosPersonales" />
+          <ScalarProperty Name="DañosMateriales" ColumnName="DañosMateriales" />
+          <ScalarProperty Name="Detalle" ColumnName="Detalle" />
+          <ScalarProperty Name="Lugar" ColumnName="Lugar" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="IDSiniestro" ColumnName="IDSiniestro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="View_Report3">
+      <EntityTypeMapping TypeName="BDProDefIntModel.View_Report3">
+        <MappingFragment StoreEntitySet="View_Report3">
+          <ScalarProperty Name="DescripcionCierre" ColumnName="DescripcionCierre" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Costo" ColumnName="Costo" />
+          <ScalarProperty Name="Fotografia" ColumnName="Fotografia" />
+          <ScalarProperty Name="DañosPersonales" ColumnName="DañosPersonales" />
+          <ScalarProperty Name="DañosMateriales" ColumnName="DañosMateriales" />
+          <ScalarProperty Name="Detalle" ColumnName="Detalle" />
+          <ScalarProperty Name="Lugar" ColumnName="Lugar" />
+          <ScalarProperty Name="FichaFin" ColumnName="FichaFin" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="IDSiniestro" ColumnName="IDSiniestro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="View_Report4">
+      <EntityTypeMapping TypeName="BDProDefIntModel.View_Report4">
+        <MappingFragment StoreEntitySet="View_Report4">
+          <ScalarProperty Name="idSiniestro" ColumnName="idSiniestro" />
+          <ScalarProperty Name="imagenRepVehicular" ColumnName="imagenRepVehicular" />
+          <ScalarProperty Name="reparacionVehicular" ColumnName="reparacionVehicular" />
+          <ScalarProperty Name="imagenPerdTotal" ColumnName="imagenPerdTotal" />
+          <ScalarProperty Name="perdidaTotal" ColumnName="perdidaTotal" />
+          <ScalarProperty Name="imagenMuerteAcc" ColumnName="imagenMuerteAcc" />
+          <ScalarProperty Name="muerteAccidente" ColumnName="muerteAccidente" />
+          <ScalarProperty Name="imagenDProp" ColumnName="imagenDProp" />
+          <ScalarProperty Name="dañosPropiedad" ColumnName="dañosPropiedad" />
+          <ScalarProperty Name="imagenAtMedic" ColumnName="imagenAtMedic" />
+          <ScalarProperty Name="atencionMedica" ColumnName="atencionMedica" />
+          <ScalarProperty Name="imagenSepelio" ColumnName="imagenSepelio" />
+          <ScalarProperty Name="Sepelio" ColumnName="Sepelio" />
+          <ScalarProperty Name="idDetalleGasto" ColumnName="idDetalleGasto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -20,6 +20,10 @@
         <AssociationConnector Association="BDProDefIntModel.FK__Siniestro__idFun__20C1E124" ManuallyRouted="false" />
         <AssociationConnector Association="BDProDefIntModel.FK__polizaVeh__idTip__1CF15040" ManuallyRouted="false" />
         <AssociationConnector Association="BDProDefIntModel.FK__Siniestro__idPol__1FCDBCEB" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BDProDefIntModel.View_Report1" Width="1.5" PointX="8.375" PointY="6.75" />
+        <EntityTypeShape EntityType="BDProDefIntModel.View_Report2" Width="1.5" PointX="5.375" PointY="9.75" />
+        <EntityTypeShape EntityType="BDProDefIntModel.View_Report3" Width="1.5" PointX="10.375" PointY="6.75" />
+        <EntityTypeShape EntityType="BDProDefIntModel.View_Report4" Width="1.5" PointX="8.5" PointY="9.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

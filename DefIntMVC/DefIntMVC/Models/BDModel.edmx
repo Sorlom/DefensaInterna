@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="BDProDefIntModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="BDProDefIntModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Bitacora">
           <Key>
             <PropertyRef Name="codbit" />
@@ -112,6 +112,94 @@
           <Property Name="NombreTP" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDProDefInt.dbo.View_Report1' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="View_Report1">
+          <Key>
+            <PropertyRef Name="IDPoliza" />
+            <PropertyRef Name="Tipo" />
+            <PropertyRef Name="Modelo" />
+            <PropertyRef Name="Año" />
+            <PropertyRef Name="Color" />
+            <PropertyRef Name="Placa" />
+            <PropertyRef Name="Chasis" />
+            <PropertyRef Name="NombreTP" />
+          </Key>
+          <Property Name="IDPoliza" Type="int" Nullable="false" />
+          <Property Name="Tipo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Modelo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Año" Type="int" Nullable="false" />
+          <Property Name="Color" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Placa" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Chasis" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="NombreTP" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDProDefInt.dbo.View_Report2' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="View_Report2">
+          <Key>
+            <PropertyRef Name="IDSiniestro" />
+            <PropertyRef Name="Lugar" />
+            <PropertyRef Name="Detalle" />
+            <PropertyRef Name="DañosMateriales" />
+            <PropertyRef Name="DañosPersonales" />
+            <PropertyRef Name="Fotografia" />
+          </Key>
+          <Property Name="IDSiniestro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FechaInicio" Type="date" />
+          <Property Name="Lugar" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Detalle" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DañosMateriales" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DañosPersonales" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Fotografia" Type="varbinary(max)" Nullable="false" />
+          <Property Name="Costo" Type="float" />
+          <Property Name="Estado" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDProDefInt.dbo.View_Report3' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="View_Report3">
+          <Key>
+            <PropertyRef Name="IDSiniestro" />
+            <PropertyRef Name="Lugar" />
+            <PropertyRef Name="Detalle" />
+            <PropertyRef Name="DañosMateriales" />
+            <PropertyRef Name="DañosPersonales" />
+            <PropertyRef Name="Fotografia" />
+          </Key>
+          <Property Name="IDSiniestro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FechaInicio" Type="date" />
+          <Property Name="FichaFin" Type="date" />
+          <Property Name="Lugar" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Detalle" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DañosMateriales" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DañosPersonales" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Fotografia" Type="varbinary(max)" Nullable="false" />
+          <Property Name="Costo" Type="float" />
+          <Property Name="Estado" Type="varchar" MaxLength="50" />
+          <Property Name="DescripcionCierre" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDProDefInt.dbo.View_Report4' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="View_Report4">
+          <Key>
+            <PropertyRef Name="idDetalleGasto" />
+            <PropertyRef Name="idSiniestro" />
+          </Key>
+          <Property Name="idDetalleGasto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Sepelio" Type="float" />
+          <Property Name="imagenSepelio" Type="varbinary(max)" />
+          <Property Name="atencionMedica" Type="float" />
+          <Property Name="imagenAtMedic" Type="varbinary(max)" />
+          <Property Name="dañosPropiedad" Type="float" />
+          <Property Name="imagenDProp" Type="varbinary(max)" />
+          <Property Name="muerteAccidente" Type="float" />
+          <Property Name="imagenMuerteAcc" Type="varbinary(max)" />
+          <Property Name="perdidaTotal" Type="float" />
+          <Property Name="imagenPerdTotal" Type="varbinary(max)" />
+          <Property Name="reparacionVehicular" Type="float" />
+          <Property Name="imagenRepVehicular" Type="varbinary(max)" />
+          <Property Name="idSiniestro" Type="int" Nullable="false" />
+        </EntityType>
         <Association Name="FK__DetalleGa__idSin__239E4DCF">
           <End Role="Siniestro" Type="Self.Siniestro" Multiplicity="1" />
           <End Role="DetalleGasto" Type="Self.DetalleGasto" Multiplicity="*" />
@@ -205,6 +293,64 @@
           <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Siniestro" EntityType="Self.Siniestro" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tipoPoliza" EntityType="Self.tipoPoliza" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="View_Report1" EntityType="Self.View_Report1" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_Report1].[IDPoliza] AS [IDPoliza], 
+    [View_Report1].[Tipo] AS [Tipo], 
+    [View_Report1].[Modelo] AS [Modelo], 
+    [View_Report1].[Año] AS [Año], 
+    [View_Report1].[Color] AS [Color], 
+    [View_Report1].[Placa] AS [Placa], 
+    [View_Report1].[Chasis] AS [Chasis], 
+    [View_Report1].[NombreTP] AS [NombreTP]
+    FROM [dbo].[View_Report1] AS [View_Report1]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_Report2" EntityType="Self.View_Report2" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_Report2].[IDSiniestro] AS [IDSiniestro], 
+    [View_Report2].[FechaInicio] AS [FechaInicio], 
+    [View_Report2].[Lugar] AS [Lugar], 
+    [View_Report2].[Detalle] AS [Detalle], 
+    [View_Report2].[DañosMateriales] AS [DañosMateriales], 
+    [View_Report2].[DañosPersonales] AS [DañosPersonales], 
+    [View_Report2].[Fotografia] AS [Fotografia], 
+    [View_Report2].[Costo] AS [Costo], 
+    [View_Report2].[Estado] AS [Estado]
+    FROM [dbo].[View_Report2] AS [View_Report2]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_Report3" EntityType="Self.View_Report3" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_Report3].[IDSiniestro] AS [IDSiniestro], 
+    [View_Report3].[FechaInicio] AS [FechaInicio], 
+    [View_Report3].[FichaFin] AS [FichaFin], 
+    [View_Report3].[Lugar] AS [Lugar], 
+    [View_Report3].[Detalle] AS [Detalle], 
+    [View_Report3].[DañosMateriales] AS [DañosMateriales], 
+    [View_Report3].[DañosPersonales] AS [DañosPersonales], 
+    [View_Report3].[Fotografia] AS [Fotografia], 
+    [View_Report3].[Costo] AS [Costo], 
+    [View_Report3].[Estado] AS [Estado], 
+    [View_Report3].[DescripcionCierre] AS [DescripcionCierre]
+    FROM [dbo].[View_Report3] AS [View_Report3]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_Report4" EntityType="Self.View_Report4" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_Report4].[idDetalleGasto] AS [idDetalleGasto], 
+    [View_Report4].[Sepelio] AS [Sepelio], 
+    [View_Report4].[imagenSepelio] AS [imagenSepelio], 
+    [View_Report4].[atencionMedica] AS [atencionMedica], 
+    [View_Report4].[imagenAtMedic] AS [imagenAtMedic], 
+    [View_Report4].[dañosPropiedad] AS [dañosPropiedad], 
+    [View_Report4].[imagenDProp] AS [imagenDProp], 
+    [View_Report4].[muerteAccidente] AS [muerteAccidente], 
+    [View_Report4].[imagenMuerteAcc] AS [imagenMuerteAcc], 
+    [View_Report4].[perdidaTotal] AS [perdidaTotal], 
+    [View_Report4].[imagenPerdTotal] AS [imagenPerdTotal], 
+    [View_Report4].[reparacionVehicular] AS [reparacionVehicular], 
+    [View_Report4].[imagenRepVehicular] AS [imagenRepVehicular], 
+    [View_Report4].[idSiniestro] AS [idSiniestro]
+    FROM [dbo].[View_Report4] AS [View_Report4]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK__DetalleGa__idSin__239E4DCF" Association="Self.FK__DetalleGa__idSin__239E4DCF">
             <End Role="Siniestro" EntitySet="Siniestro" />
             <End Role="DetalleGasto" EntitySet="DetalleGasto" />
@@ -234,8 +380,7 @@
             <End Role="Siniestro" EntitySet="Siniestro" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BDProDefIntModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -481,7 +626,91 @@
             <End Role="polizaVehicular" EntitySet="polizaVehicular" />
             <End Role="Siniestro" EntitySet="Siniestro" />
           </AssociationSet>
+          <EntitySet Name="View_Report1" EntityType="BDProDefIntModel.View_Report1" />
+          <EntitySet Name="View_Report2" EntityType="BDProDefIntModel.View_Report2" />
+          <EntitySet Name="View_Report3" EntityType="BDProDefIntModel.View_Report3" />
+          <EntitySet Name="View_Report4" EntityType="BDProDefIntModel.View_Report4" />
         </EntityContainer>
+        <EntityType Name="View_Report1">
+          <Key>
+            <PropertyRef Name="IDPoliza" />
+            <PropertyRef Name="Tipo" />
+            <PropertyRef Name="Modelo" />
+            <PropertyRef Name="Año" />
+            <PropertyRef Name="Color" />
+            <PropertyRef Name="Placa" />
+            <PropertyRef Name="Chasis" />
+            <PropertyRef Name="NombreTP" />
+          </Key>
+          <Property Name="IDPoliza" Type="Int32" Nullable="false" />
+          <Property Name="Tipo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Modelo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Año" Type="Int32" Nullable="false" />
+          <Property Name="Color" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Placa" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Chasis" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="NombreTP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="View_Report2">
+          <Key>
+            <PropertyRef Name="IDSiniestro" />
+            <PropertyRef Name="Lugar" />
+            <PropertyRef Name="Detalle" />
+            <PropertyRef Name="DañosMateriales" />
+            <PropertyRef Name="DañosPersonales" />
+            <PropertyRef Name="Fotografia" />
+          </Key>
+          <Property Name="IDSiniestro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FechaInicio" Type="DateTime" Precision="0" />
+          <Property Name="Lugar" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Detalle" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DañosMateriales" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DañosPersonales" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Fotografia" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="Costo" Type="Double" />
+          <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="View_Report3">
+          <Key>
+            <PropertyRef Name="IDSiniestro" />
+            <PropertyRef Name="Lugar" />
+            <PropertyRef Name="Detalle" />
+            <PropertyRef Name="DañosMateriales" />
+            <PropertyRef Name="DañosPersonales" />
+            <PropertyRef Name="Fotografia" />
+          </Key>
+          <Property Name="IDSiniestro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FechaInicio" Type="DateTime" Precision="0" />
+          <Property Name="FichaFin" Type="DateTime" Precision="0" />
+          <Property Name="Lugar" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Detalle" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DañosMateriales" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DañosPersonales" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Fotografia" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="Costo" Type="Double" />
+          <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DescripcionCierre" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="View_Report4">
+          <Key>
+            <PropertyRef Name="idDetalleGasto" />
+            <PropertyRef Name="idSiniestro" />
+          </Key>
+          <Property Name="idDetalleGasto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sepelio" Type="Double" />
+          <Property Name="imagenSepelio" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="atencionMedica" Type="Double" />
+          <Property Name="imagenAtMedic" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="dañosPropiedad" Type="Double" />
+          <Property Name="imagenDProp" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="muerteAccidente" Type="Double" />
+          <Property Name="imagenMuerteAcc" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="perdidaTotal" Type="Double" />
+          <Property Name="imagenPerdTotal" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="reparacionVehicular" Type="Double" />
+          <Property Name="imagenRepVehicular" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="idSiniestro" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -600,6 +829,72 @@
                 <ScalarProperty Name="idTipoPoliza" ColumnName="idTipoPoliza" />
                 <ScalarProperty Name="NombreTP" ColumnName="NombreTP" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Report1">
+            <EntityTypeMapping TypeName="BDProDefIntModel.View_Report1">
+              <MappingFragment StoreEntitySet="View_Report1">
+                <ScalarProperty Name="NombreTP" ColumnName="NombreTP" />
+                <ScalarProperty Name="Chasis" ColumnName="Chasis" />
+                <ScalarProperty Name="Placa" ColumnName="Placa" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="Año" ColumnName="Año" />
+                <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="IDPoliza" ColumnName="IDPoliza" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Report2">
+            <EntityTypeMapping TypeName="BDProDefIntModel.View_Report2">
+              <MappingFragment StoreEntitySet="View_Report2">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Costo" ColumnName="Costo" />
+                <ScalarProperty Name="Fotografia" ColumnName="Fotografia" />
+                <ScalarProperty Name="DañosPersonales" ColumnName="DañosPersonales" />
+                <ScalarProperty Name="DañosMateriales" ColumnName="DañosMateriales" />
+                <ScalarProperty Name="Detalle" ColumnName="Detalle" />
+                <ScalarProperty Name="Lugar" ColumnName="Lugar" />
+                <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+                <ScalarProperty Name="IDSiniestro" ColumnName="IDSiniestro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Report3">
+            <EntityTypeMapping TypeName="BDProDefIntModel.View_Report3">
+              <MappingFragment StoreEntitySet="View_Report3">
+                <ScalarProperty Name="DescripcionCierre" ColumnName="DescripcionCierre" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Costo" ColumnName="Costo" />
+                <ScalarProperty Name="Fotografia" ColumnName="Fotografia" />
+                <ScalarProperty Name="DañosPersonales" ColumnName="DañosPersonales" />
+                <ScalarProperty Name="DañosMateriales" ColumnName="DañosMateriales" />
+                <ScalarProperty Name="Detalle" ColumnName="Detalle" />
+                <ScalarProperty Name="Lugar" ColumnName="Lugar" />
+                <ScalarProperty Name="FichaFin" ColumnName="FichaFin" />
+                <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+                <ScalarProperty Name="IDSiniestro" ColumnName="IDSiniestro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Report4">
+            <EntityTypeMapping TypeName="BDProDefIntModel.View_Report4">
+              <MappingFragment StoreEntitySet="View_Report4">
+                <ScalarProperty Name="idSiniestro" ColumnName="idSiniestro" />
+                <ScalarProperty Name="imagenRepVehicular" ColumnName="imagenRepVehicular" />
+                <ScalarProperty Name="reparacionVehicular" ColumnName="reparacionVehicular" />
+                <ScalarProperty Name="imagenPerdTotal" ColumnName="imagenPerdTotal" />
+                <ScalarProperty Name="perdidaTotal" ColumnName="perdidaTotal" />
+                <ScalarProperty Name="imagenMuerteAcc" ColumnName="imagenMuerteAcc" />
+                <ScalarProperty Name="muerteAccidente" ColumnName="muerteAccidente" />
+                <ScalarProperty Name="imagenDProp" ColumnName="imagenDProp" />
+                <ScalarProperty Name="dañosPropiedad" ColumnName="dañosPropiedad" />
+                <ScalarProperty Name="imagenAtMedic" ColumnName="imagenAtMedic" />
+                <ScalarProperty Name="atencionMedica" ColumnName="atencionMedica" />
+                <ScalarProperty Name="imagenSepelio" ColumnName="imagenSepelio" />
+                <ScalarProperty Name="Sepelio" ColumnName="Sepelio" />
+                <ScalarProperty Name="idDetalleGasto" ColumnName="idDetalleGasto" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

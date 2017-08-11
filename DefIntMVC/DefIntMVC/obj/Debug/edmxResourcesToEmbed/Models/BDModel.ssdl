@@ -107,6 +107,94 @@
     <Property Name="NombreTP" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
   </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDProDefInt.dbo.View_Report1' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="View_Report1">
+    <Key>
+      <PropertyRef Name="IDPoliza" />
+      <PropertyRef Name="Tipo" />
+      <PropertyRef Name="Modelo" />
+      <PropertyRef Name="Año" />
+      <PropertyRef Name="Color" />
+      <PropertyRef Name="Placa" />
+      <PropertyRef Name="Chasis" />
+      <PropertyRef Name="NombreTP" />
+    </Key>
+    <Property Name="IDPoliza" Type="int" Nullable="false" />
+    <Property Name="Tipo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Modelo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Año" Type="int" Nullable="false" />
+    <Property Name="Color" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Placa" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Chasis" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="NombreTP" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDProDefInt.dbo.View_Report2' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="View_Report2">
+    <Key>
+      <PropertyRef Name="IDSiniestro" />
+      <PropertyRef Name="Lugar" />
+      <PropertyRef Name="Detalle" />
+      <PropertyRef Name="DañosMateriales" />
+      <PropertyRef Name="DañosPersonales" />
+      <PropertyRef Name="Fotografia" />
+    </Key>
+    <Property Name="IDSiniestro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FechaInicio" Type="date" />
+    <Property Name="Lugar" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Detalle" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DañosMateriales" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DañosPersonales" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Fotografia" Type="varbinary(max)" Nullable="false" />
+    <Property Name="Costo" Type="float" />
+    <Property Name="Estado" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDProDefInt.dbo.View_Report3' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="View_Report3">
+    <Key>
+      <PropertyRef Name="IDSiniestro" />
+      <PropertyRef Name="Lugar" />
+      <PropertyRef Name="Detalle" />
+      <PropertyRef Name="DañosMateriales" />
+      <PropertyRef Name="DañosPersonales" />
+      <PropertyRef Name="Fotografia" />
+    </Key>
+    <Property Name="IDSiniestro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FechaInicio" Type="date" />
+    <Property Name="FichaFin" Type="date" />
+    <Property Name="Lugar" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Detalle" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DañosMateriales" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DañosPersonales" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Fotografia" Type="varbinary(max)" Nullable="false" />
+    <Property Name="Costo" Type="float" />
+    <Property Name="Estado" Type="varchar" MaxLength="50" />
+    <Property Name="DescripcionCierre" Type="varchar" MaxLength="300" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDProDefInt.dbo.View_Report4' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="View_Report4">
+    <Key>
+      <PropertyRef Name="idDetalleGasto" />
+      <PropertyRef Name="idSiniestro" />
+    </Key>
+    <Property Name="idDetalleGasto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Sepelio" Type="float" />
+    <Property Name="imagenSepelio" Type="varbinary(max)" />
+    <Property Name="atencionMedica" Type="float" />
+    <Property Name="imagenAtMedic" Type="varbinary(max)" />
+    <Property Name="dañosPropiedad" Type="float" />
+    <Property Name="imagenDProp" Type="varbinary(max)" />
+    <Property Name="muerteAccidente" Type="float" />
+    <Property Name="imagenMuerteAcc" Type="varbinary(max)" />
+    <Property Name="perdidaTotal" Type="float" />
+    <Property Name="imagenPerdTotal" Type="varbinary(max)" />
+    <Property Name="reparacionVehicular" Type="float" />
+    <Property Name="imagenRepVehicular" Type="varbinary(max)" />
+    <Property Name="idSiniestro" Type="int" Nullable="false" />
+  </EntityType>
   <Association Name="FK__DetalleGa__idSin__239E4DCF">
     <End Role="Siniestro" Type="Self.Siniestro" Multiplicity="1" />
     <End Role="DetalleGasto" Type="Self.DetalleGasto" Multiplicity="*" />
@@ -200,6 +288,64 @@
     <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Siniestro" EntityType="Self.Siniestro" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tipoPoliza" EntityType="Self.tipoPoliza" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="View_Report1" EntityType="Self.View_Report1" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [View_Report1].[IDPoliza] AS [IDPoliza], 
+    [View_Report1].[Tipo] AS [Tipo], 
+    [View_Report1].[Modelo] AS [Modelo], 
+    [View_Report1].[Año] AS [Año], 
+    [View_Report1].[Color] AS [Color], 
+    [View_Report1].[Placa] AS [Placa], 
+    [View_Report1].[Chasis] AS [Chasis], 
+    [View_Report1].[NombreTP] AS [NombreTP]
+    FROM [dbo].[View_Report1] AS [View_Report1]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="View_Report2" EntityType="Self.View_Report2" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [View_Report2].[IDSiniestro] AS [IDSiniestro], 
+    [View_Report2].[FechaInicio] AS [FechaInicio], 
+    [View_Report2].[Lugar] AS [Lugar], 
+    [View_Report2].[Detalle] AS [Detalle], 
+    [View_Report2].[DañosMateriales] AS [DañosMateriales], 
+    [View_Report2].[DañosPersonales] AS [DañosPersonales], 
+    [View_Report2].[Fotografia] AS [Fotografia], 
+    [View_Report2].[Costo] AS [Costo], 
+    [View_Report2].[Estado] AS [Estado]
+    FROM [dbo].[View_Report2] AS [View_Report2]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="View_Report3" EntityType="Self.View_Report3" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [View_Report3].[IDSiniestro] AS [IDSiniestro], 
+    [View_Report3].[FechaInicio] AS [FechaInicio], 
+    [View_Report3].[FichaFin] AS [FichaFin], 
+    [View_Report3].[Lugar] AS [Lugar], 
+    [View_Report3].[Detalle] AS [Detalle], 
+    [View_Report3].[DañosMateriales] AS [DañosMateriales], 
+    [View_Report3].[DañosPersonales] AS [DañosPersonales], 
+    [View_Report3].[Fotografia] AS [Fotografia], 
+    [View_Report3].[Costo] AS [Costo], 
+    [View_Report3].[Estado] AS [Estado], 
+    [View_Report3].[DescripcionCierre] AS [DescripcionCierre]
+    FROM [dbo].[View_Report3] AS [View_Report3]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="View_Report4" EntityType="Self.View_Report4" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [View_Report4].[idDetalleGasto] AS [idDetalleGasto], 
+    [View_Report4].[Sepelio] AS [Sepelio], 
+    [View_Report4].[imagenSepelio] AS [imagenSepelio], 
+    [View_Report4].[atencionMedica] AS [atencionMedica], 
+    [View_Report4].[imagenAtMedic] AS [imagenAtMedic], 
+    [View_Report4].[dañosPropiedad] AS [dañosPropiedad], 
+    [View_Report4].[imagenDProp] AS [imagenDProp], 
+    [View_Report4].[muerteAccidente] AS [muerteAccidente], 
+    [View_Report4].[imagenMuerteAcc] AS [imagenMuerteAcc], 
+    [View_Report4].[perdidaTotal] AS [perdidaTotal], 
+    [View_Report4].[imagenPerdTotal] AS [imagenPerdTotal], 
+    [View_Report4].[reparacionVehicular] AS [reparacionVehicular], 
+    [View_Report4].[imagenRepVehicular] AS [imagenRepVehicular], 
+    [View_Report4].[idSiniestro] AS [idSiniestro]
+    FROM [dbo].[View_Report4] AS [View_Report4]</DefiningQuery>
+    </EntitySet>
     <AssociationSet Name="FK__DetalleGa__idSin__239E4DCF" Association="Self.FK__DetalleGa__idSin__239E4DCF">
       <End Role="Siniestro" EntitySet="Siniestro" />
       <End Role="DetalleGasto" EntitySet="DetalleGasto" />

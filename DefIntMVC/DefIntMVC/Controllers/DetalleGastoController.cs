@@ -39,17 +39,9 @@ namespace DefIntMVC.Controllers
         // GET: DetalleGasto/Create
         public ActionResult Create()
         {
-            if (TempData["SinEst"].ToString() == "Cerrado")
-            {
-                TempData["SinEst"] ="";
-                return RedirectToAction("Index", "DetalleGasto");
-            }
-            else
-            {
+           
                 ViewBag.idSiniestro = new SelectList(db.Siniestro, "idSiniestro", "idSiniestro");
-                return View();
-            }
-            
+                return View();           
         }
 
 
@@ -109,12 +101,7 @@ namespace DefIntMVC.Controllers
             var idpol = db.Siniestro.Where(x => x.idSiniestro == idSin).FirstOrDefault().idPoliza;
             TempData["TPoliza2"] = db.polizaVehicular.Where(x => x.idPoliza == idpol).FirstOrDefault().idTipoPoliza;
             var SinEst2 = db.Siniestro.Where(x => x.idPoliza == idpol).FirstOrDefault().Estado;
-            if (SinEst2.ToString() == "Cerrado")
-            {
-                return RedirectToAction("Index", "DetalleGasto");
-            }
-            else
-            {
+
                 if (id == null)
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -126,7 +113,6 @@ namespace DefIntMVC.Controllers
                 }
                 ViewBag.idSiniestro = new SelectList(db.Siniestro, "idSiniestro", "Lugar", detalleGasto.idSiniestro);
                 return View(detalleGasto);
-            }
         }
 
         // POST: DetalleGasto/Edit/5

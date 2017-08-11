@@ -242,5 +242,89 @@
       <End Role="polizaVehicular" EntitySet="polizaVehicular" />
       <End Role="Siniestro" EntitySet="Siniestro" />
     </AssociationSet>
+    <EntitySet Name="View_Report1" EntityType="BDProDefIntModel.View_Report1" />
+    <EntitySet Name="View_Report2" EntityType="BDProDefIntModel.View_Report2" />
+    <EntitySet Name="View_Report3" EntityType="BDProDefIntModel.View_Report3" />
+    <EntitySet Name="View_Report4" EntityType="BDProDefIntModel.View_Report4" />
   </EntityContainer>
+  <EntityType Name="View_Report1">
+    <Key>
+      <PropertyRef Name="IDPoliza" />
+      <PropertyRef Name="Tipo" />
+      <PropertyRef Name="Modelo" />
+      <PropertyRef Name="Año" />
+      <PropertyRef Name="Color" />
+      <PropertyRef Name="Placa" />
+      <PropertyRef Name="Chasis" />
+      <PropertyRef Name="NombreTP" />
+    </Key>
+    <Property Name="IDPoliza" Type="Int32" Nullable="false" />
+    <Property Name="Tipo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Modelo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Año" Type="Int32" Nullable="false" />
+    <Property Name="Color" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Placa" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Chasis" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="NombreTP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="View_Report2">
+    <Key>
+      <PropertyRef Name="IDSiniestro" />
+      <PropertyRef Name="Lugar" />
+      <PropertyRef Name="Detalle" />
+      <PropertyRef Name="DañosMateriales" />
+      <PropertyRef Name="DañosPersonales" />
+      <PropertyRef Name="Fotografia" />
+    </Key>
+    <Property Name="IDSiniestro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FechaInicio" Type="DateTime" Precision="0" />
+    <Property Name="Lugar" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Detalle" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DañosMateriales" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DañosPersonales" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Fotografia" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="Costo" Type="Double" />
+    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="View_Report3">
+    <Key>
+      <PropertyRef Name="IDSiniestro" />
+      <PropertyRef Name="Lugar" />
+      <PropertyRef Name="Detalle" />
+      <PropertyRef Name="DañosMateriales" />
+      <PropertyRef Name="DañosPersonales" />
+      <PropertyRef Name="Fotografia" />
+    </Key>
+    <Property Name="IDSiniestro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FechaInicio" Type="DateTime" Precision="0" />
+    <Property Name="FichaFin" Type="DateTime" Precision="0" />
+    <Property Name="Lugar" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Detalle" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DañosMateriales" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DañosPersonales" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Fotografia" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="Costo" Type="Double" />
+    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DescripcionCierre" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="View_Report4">
+    <Key>
+      <PropertyRef Name="idDetalleGasto" />
+      <PropertyRef Name="idSiniestro" />
+    </Key>
+    <Property Name="idDetalleGasto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Sepelio" Type="Double" />
+    <Property Name="imagenSepelio" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="atencionMedica" Type="Double" />
+    <Property Name="imagenAtMedic" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="dañosPropiedad" Type="Double" />
+    <Property Name="imagenDProp" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="muerteAccidente" Type="Double" />
+    <Property Name="imagenMuerteAcc" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="perdidaTotal" Type="Double" />
+    <Property Name="imagenPerdTotal" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="reparacionVehicular" Type="Double" />
+    <Property Name="imagenRepVehicular" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="idSiniestro" Type="Int32" Nullable="false" />
+  </EntityType>
 </Schema>

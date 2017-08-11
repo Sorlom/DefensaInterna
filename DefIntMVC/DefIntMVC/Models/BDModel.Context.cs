@@ -33,5 +33,9 @@ namespace DefIntMVC.Models
         public virtual DbSet<Roles> Roles { get; set; }
         public virtual DbSet<Siniestro> Siniestro { get; set; }
         public virtual DbSet<tipoPoliza> tipoPoliza { get; set; }
+        public virtual DbSet<View_Report1> View_Report1 { get; set; }
+        public virtual DbSet<View_Report2> View_Report2 { get; set; }
+        public virtual DbSet<View_Report3> View_Report3 { get; set; }
+        public virtual DbSet<View_Report4> View_Report4 { get; set; }
     }
 }

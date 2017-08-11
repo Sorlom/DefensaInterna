@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="BDProDefIntDataSet" targetNamespace="http://tempuri.org/BDProDefIntDataSet.xsd" xmlns:mstns="http://tempuri.org/BDProDefIntDataSet.xsd" xmlns="http://tempuri.org/BDProDefIntDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="BDProDefIntConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BDProDefIntConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.BDProDefIntConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="View_Report1TableAdapter" GeneratorDataComponentClassName="View_Report1TableAdapter" Name="View_Report1" UserDataComponentName="View_Report1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BDProDefIntConnectionString (Web.config)" DbObjectName="BDProDefInt.dbo.View_Report1" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT IDPoliza, Tipo, Modelo, Año, Color, Placa, Chasis, NombreTP FROM dbo.View_Report1</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="IDPoliza" DataSetColumn="IDPoliza" />
+              <Mapping SourceColumn="Tipo" DataSetColumn="Tipo" />
+              <Mapping SourceColumn="Modelo" DataSetColumn="Modelo" />
+              <Mapping SourceColumn="Año" DataSetColumn="Año" />
+              <Mapping SourceColumn="Color" DataSetColumn="Color" />
+              <Mapping SourceColumn="Placa" DataSetColumn="Placa" />
+              <Mapping SourceColumn="Chasis" DataSetColumn="Chasis" />
+              <Mapping SourceColumn="NombreTP" DataSetColumn="NombreTP" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="View_Report2TableAdapter" GeneratorDataComponentClassName="View_Report2TableAdapter" Name="View_Report2" UserDataComponentName="View_Report2TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BDProDefIntConnectionString (Web.config)" DbObjectName="BDProDefInt.dbo.View_Report2" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT IDSiniestro, FechaInicio, Lugar, Detalle, DañosMateriales, DañosPersonales, Fotografia, Costo, Estado FROM dbo.View_Report2</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="IDSiniestro" DataSetColumn="IDSiniestro" />
+              <Mapping SourceColumn="FechaInicio" DataSetColumn="FechaInicio" />
+              <Mapping SourceColumn="Lugar" DataSetColumn="Lugar" />
+              <Mapping SourceColumn="Detalle" DataSetColumn="Detalle" />
+              <Mapping SourceColumn="DañosMateriales" DataSetColumn="DañosMateriales" />
+              <Mapping SourceColumn="DañosPersonales" DataSetColumn="DañosPersonales" />
+              <Mapping SourceColumn="Fotografia" DataSetColumn="Fotografia" />
+              <Mapping SourceColumn="Costo" DataSetColumn="Costo" />
+              <Mapping SourceColumn="Estado" DataSetColumn="Estado" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="View_Report3TableAdapter" GeneratorDataComponentClassName="View_Report3TableAdapter" Name="View_Report3" UserDataComponentName="View_Report3TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BDProDefIntConnectionString (Web.config)" DbObjectName="BDProDefInt.dbo.View_Report3" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT IDSiniestro, FechaInicio, FichaFin, Lugar, Detalle, DañosMateriales, DañosPersonales, Fotografia, Costo, Estado, DescripcionCierre FROM dbo.View_Report3</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="IDSiniestro" DataSetColumn="IDSiniestro" />
+              <Mapping SourceColumn="FechaInicio" DataSetColumn="FechaInicio" />
+              <Mapping SourceColumn="FichaFin" DataSetColumn="FichaFin" />
+              <Mapping SourceColumn="Lugar" DataSetColumn="Lugar" />
+              <Mapping SourceColumn="Detalle" DataSetColumn="Detalle" />
+              <Mapping SourceColumn="DañosMateriales" DataSetColumn="DañosMateriales" />
+              <Mapping SourceColumn="DañosPersonales" DataSetColumn="DañosPersonales" />
+              <Mapping SourceColumn="Fotografia" DataSetColumn="Fotografia" />
+              <Mapping SourceColumn="Costo" DataSetColumn="Costo" />
+              <Mapping SourceColumn="Estado" DataSetColumn="Estado" />
+              <Mapping SourceColumn="DescripcionCierre" DataSetColumn="DescripcionCierre" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="View_Report4TableAdapter" GeneratorDataComponentClassName="View_Report4TableAdapter" Name="View_Report4" UserDataComponentName="View_Report4TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BDProDefIntConnectionString (Web.config)" DbObjectName="BDProDefInt.dbo.View_Report4" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idDetalleGasto, Sepelio, imagenSepelio, atencionMedica, imagenAtMedic, dañosPropiedad, imagenDProp, muerteAccidente, imagenMuerteAcc, perdidaTotal, imagenPerdTotal, reparacionVehicular, imagenRepVehicular, idSiniestro FROM dbo.View_Report4</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idDetalleGasto" DataSetColumn="idDetalleGasto" />
+              <Mapping SourceColumn="Sepelio" DataSetColumn="Sepelio" />
+              <Mapping SourceColumn="imagenSepelio" DataSetColumn="imagenSepelio" />
+              <Mapping SourceColumn="atencionMedica" DataSetColumn="atencionMedica" />
+              <Mapping SourceColumn="imagenAtMedic" DataSetColumn="imagenAtMedic" />
+              <Mapping SourceColumn="dañosPropiedad" DataSetColumn="dañosPropiedad" />
+              <Mapping SourceColumn="imagenDProp" DataSetColumn="imagenDProp" />
+              <Mapping SourceColumn="muerteAccidente" DataSetColumn="muerteAccidente" />
+              <Mapping SourceColumn="imagenMuerteAcc" DataSetColumn="imagenMuerteAcc" />
+              <Mapping SourceColumn="perdidaTotal" DataSetColumn="perdidaTotal" />
+              <Mapping SourceColumn="imagenPerdTotal" DataSetColumn="imagenPerdTotal" />
+              <Mapping SourceColumn="reparacionVehicular" DataSetColumn="reparacionVehicular" />
+              <Mapping SourceColumn="imagenRepVehicular" DataSetColumn="imagenRepVehicular" />
+              <Mapping SourceColumn="idSiniestro" DataSetColumn="idSiniestro" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="BDProDefIntDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="BDProDefIntDataSet" msprop:Generator_UserDSName="BDProDefIntDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="View_Report1" msprop:Generator_TableClassName="View_Report1DataTable" msprop:Generator_TableVarName="tableView_Report1" msprop:Generator_TablePropName="View_Report1" msprop:Generator_RowDeletingName="View_Report1RowDeleting" msprop:Generator_RowChangingName="View_Report1RowChanging" msprop:Generator_RowEvHandlerName="View_Report1RowChangeEventHandler" msprop:Generator_RowDeletedName="View_Report1RowDeleted" msprop:Generator_UserTableName="View_Report1" msprop:Generator_RowChangedName="View_Report1RowChanged" msprop:Generator_RowEvArgName="View_Report1RowChangeEvent" msprop:Generator_RowClassName="View_Report1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IDPoliza" msprop:Generator_ColumnVarNameInTable="columnIDPoliza" msprop:Generator_ColumnPropNameInRow="IDPoliza" msprop:Generator_ColumnPropNameInTable="IDPolizaColumn" msprop:Generator_UserColumnName="IDPoliza" type="xs:int" />
+              <xs:element name="Tipo" msprop:Generator_ColumnVarNameInTable="columnTipo" msprop:Generator_ColumnPropNameInRow="Tipo" msprop:Generator_ColumnPropNameInTable="TipoColumn" msprop:Generator_UserColumnName="Tipo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Modelo" msprop:Generator_ColumnVarNameInTable="columnModelo" msprop:Generator_ColumnPropNameInRow="Modelo" msprop:Generator_ColumnPropNameInTable="ModeloColumn" msprop:Generator_UserColumnName="Modelo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Año" msprop:Generator_ColumnVarNameInTable="columnAño" msprop:Generator_ColumnPropNameInRow="Año" msprop:Generator_ColumnPropNameInTable="AñoColumn" msprop:Generator_UserColumnName="Año" type="xs:int" />
+              <xs:element name="Color" msprop:Generator_ColumnVarNameInTable="columnColor" msprop:Generator_ColumnPropNameInRow="Color" msprop:Generator_ColumnPropNameInTable="ColorColumn" msprop:Generator_UserColumnName="Color">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Placa" msprop:Generator_ColumnVarNameInTable="columnPlaca" msprop:Generator_ColumnPropNameInRow="Placa" msprop:Generator_ColumnPropNameInTable="PlacaColumn" msprop:Generator_UserColumnName="Placa">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Chasis" msprop:Generator_ColumnVarNameInTable="columnChasis" msprop:Generator_ColumnPropNameInRow="Chasis" msprop:Generator_ColumnPropNameInTable="ChasisColumn" msprop:Generator_UserColumnName="Chasis">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NombreTP" msprop:Generator_ColumnVarNameInTable="columnNombreTP" msprop:Generator_ColumnPropNameInRow="NombreTP" msprop:Generator_ColumnPropNameInTable="NombreTPColumn" msprop:Generator_UserColumnName="NombreTP">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="View_Report2" msprop:Generator_TableClassName="View_Report2DataTable" msprop:Generator_TableVarName="tableView_Report2" msprop:Generator_TablePropName="View_Report2" msprop:Generator_RowDeletingName="View_Report2RowDeleting" msprop:Generator_RowChangingName="View_Report2RowChanging" msprop:Generator_RowEvHandlerName="View_Report2RowChangeEventHandler" msprop:Generator_RowDeletedName="View_Report2RowDeleted" msprop:Generator_UserTableName="View_Report2" msprop:Generator_RowChangedName="View_Report2RowChanged" msprop:Generator_RowEvArgName="View_Report2RowChangeEvent" msprop:Generator_RowClassName="View_Report2Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IDSiniestro" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIDSiniestro" msprop:Generator_ColumnPropNameInRow="IDSiniestro" msprop:Generator_ColumnPropNameInTable="IDSiniestroColumn" msprop:Generator_UserColumnName="IDSiniestro" type="xs:int" />
+              <xs:element name="FechaInicio" msprop:Generator_ColumnVarNameInTable="columnFechaInicio" msprop:Generator_ColumnPropNameInRow="FechaInicio" msprop:Generator_ColumnPropNameInTable="FechaInicioColumn" msprop:Generator_UserColumnName="FechaInicio" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Lugar" msprop:Generator_ColumnVarNameInTable="columnLugar" msprop:Generator_ColumnPropNameInRow="Lugar" msprop:Generator_ColumnPropNameInTable="LugarColumn" msprop:Generator_UserColumnName="Lugar">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Detalle" msprop:Generator_ColumnVarNameInTable="columnDetalle" msprop:Generator_ColumnPropNameInRow="Detalle" msprop:Generator_ColumnPropNameInTable="DetalleColumn" msprop:Generator_UserColumnName="Detalle">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DañosMateriales" msprop:Generator_ColumnVarNameInTable="columnDañosMateriales" msprop:Generator_ColumnPropNameInRow="DañosMateriales" msprop:Generator_ColumnPropNameInTable="DañosMaterialesColumn" msprop:Generator_UserColumnName="DañosMateriales">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DañosPersonales" msprop:Generator_ColumnVarNameInTable="columnDañosPersonales" msprop:Generator_ColumnPropNameInRow="DañosPersonales" msprop:Generator_ColumnPropNameInTable="DañosPersonalesColumn" msprop:Generator_UserColumnName="DañosPersonales">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Fotografia" msprop:Generator_ColumnVarNameInTable="columnFotografia" msprop:Generator_ColumnPropNameInRow="Fotografia" msprop:Generator_ColumnPropNameInTable="FotografiaColumn" msprop:Generator_UserColumnName="Fotografia" type="xs:base64Binary" />
+              <xs:element name="Costo" msprop:Generator_ColumnVarNameInTable="columnCosto" msprop:Generator_ColumnPropNameInRow="Costo" msprop:Generator_ColumnPropNameInTable="CostoColumn" msprop:Generator_UserColumnName="Costo" type="xs:double" minOccurs="0" />
+              <xs:element name="Estado" msprop:Generator_ColumnVarNameInTable="columnEstado" msprop:Generator_ColumnPropNameInRow="Estado" msprop:Generator_ColumnPropNameInTable="EstadoColumn" msprop:Generator_UserColumnName="Estado" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="View_Report3" msprop:Generator_TableClassName="View_Report3DataTable" msprop:Generator_TableVarName="tableView_Report3" msprop:Generator_TablePropName="View_Report3" msprop:Generator_RowDeletingName="View_Report3RowDeleting" msprop:Generator_RowChangingName="View_Report3RowChanging" msprop:Generator_RowEvHandlerName="View_Report3RowChangeEventHandler" msprop:Generator_RowDeletedName="View_Report3RowDeleted" msprop:Generator_UserTableName="View_Report3" msprop:Generator_RowChangedName="View_Report3RowChanged" msprop:Generator_RowEvArgName="View_Report3RowChangeEvent" msprop:Generator_RowClassName="View_Report3Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IDSiniestro" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIDSiniestro" msprop:Generator_ColumnPropNameInRow="IDSiniestro" msprop:Generator_ColumnPropNameInTable="IDSiniestroColumn" msprop:Generator_UserColumnName="IDSiniestro" type="xs:int" />
+              <xs:element name="FechaInicio" msprop:Generator_ColumnVarNameInTable="columnFechaInicio" msprop:Generator_ColumnPropNameInRow="FechaInicio" msprop:Generator_ColumnPropNameInTable="FechaInicioColumn" msprop:Generator_UserColumnName="FechaInicio" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="FichaFin" msprop:Generator_ColumnVarNameInTable="columnFichaFin" msprop:Generator_ColumnPropNameInRow="FichaFin" msprop:Generator_ColumnPropNameInTable="FichaFinColumn" msprop:Generator_UserColumnName="FichaFin" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Lugar" msprop:Generator_ColumnVarNameInTable="columnLugar" msprop:Generator_ColumnPropNameInRow="Lugar" msprop:Generator_ColumnPropNameInTable="LugarColumn" msprop:Generator_UserColumnName="Lugar">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Detalle" msprop:Generator_ColumnVarNameInTable="columnDetalle" msprop:Generator_ColumnPropNameInRow="Detalle" msprop:Generator_ColumnPropNameInTable="DetalleColumn" msprop:Generator_UserColumnName="Detalle">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DañosMateriales" msprop:Generator_ColumnVarNameInTable="columnDañosMateriales" msprop:Generator_ColumnPropNameInRow="DañosMateriales" msprop:Generator_ColumnPropNameInTable="DañosMaterialesColumn" msprop:Generator_UserColumnName="DañosMateriales">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DañosPersonales" msprop:Generator_ColumnVarNameInTable="columnDañosPersonales" msprop:Generator_ColumnPropNameInRow="DañosPersonales" msprop:Generator_ColumnPropNameInTable="DañosPersonalesColumn" msprop:Generator_UserColumnName="DañosPersonales">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Fotografia" msprop:Generator_ColumnVarNameInTable="columnFotografia" msprop:Generator_ColumnPropNameInRow="Fotografia" msprop:Generator_ColumnPropNameInTable="FotografiaColumn" msprop:Generator_UserColumnName="Fotografia" type="xs:base64Binary" />
+              <xs:element name="Costo" msprop:Generator_ColumnVarNameInTable="columnCosto" msprop:Generator_ColumnPropNameInRow="Costo" msprop:Generator_ColumnPropNameInTable="CostoColumn" msprop:Generator_UserColumnName="Costo" type="xs:double" minOccurs="0" />
+              <xs:element name="Estado" msprop:Generator_ColumnVarNameInTable="columnEstado" msprop:Generator_ColumnPropNameInRow="Estado" msprop:Generator_ColumnPropNameInTable="EstadoColumn" msprop:Generator_UserColumnName="Estado" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DescripcionCierre" msprop:Generator_ColumnVarNameInTable="columnDescripcionCierre" msprop:Generator_ColumnPropNameInRow="DescripcionCierre" msprop:Generator_ColumnPropNameInTable="DescripcionCierreColumn" msprop:Generator_UserColumnName="DescripcionCierre" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="300" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="View_Report4" msprop:Generator_TableClassName="View_Report4DataTable" msprop:Generator_TableVarName="tableView_Report4" msprop:Generator_TablePropName="View_Report4" msprop:Generator_RowDeletingName="View_Report4RowDeleting" msprop:Generator_RowChangingName="View_Report4RowChanging" msprop:Generator_RowEvHandlerName="View_Report4RowChangeEventHandler" msprop:Generator_RowDeletedName="View_Report4RowDeleted" msprop:Generator_UserTableName="View_Report4" msprop:Generator_RowChangedName="View_Report4RowChanged" msprop:Generator_RowEvArgName="View_Report4RowChangeEvent" msprop:Generator_RowClassName="View_Report4Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idDetalleGasto" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidDetalleGasto" msprop:Generator_ColumnPropNameInRow="idDetalleGasto" msprop:Generator_ColumnPropNameInTable="idDetalleGastoColumn" msprop:Generator_UserColumnName="idDetalleGasto" type="xs:int" />
+              <xs:element name="Sepelio" msprop:Generator_ColumnVarNameInTable="columnSepelio" msprop:Generator_ColumnPropNameInRow="Sepelio" msprop:Generator_ColumnPropNameInTable="SepelioColumn" msprop:Generator_UserColumnName="Sepelio" type="xs:double" minOccurs="0" />
+              <xs:element name="imagenSepelio" msprop:Generator_ColumnVarNameInTable="columnimagenSepelio" msprop:Generator_ColumnPropNameInRow="imagenSepelio" msprop:Generator_ColumnPropNameInTable="imagenSepelioColumn" msprop:Generator_UserColumnName="imagenSepelio" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="atencionMedica" msprop:Generator_ColumnVarNameInTable="columnatencionMedica" msprop:Generator_ColumnPropNameInRow="atencionMedica" msprop:Generator_ColumnPropNameInTable="atencionMedicaColumn" msprop:Generator_UserColumnName="atencionMedica" type="xs:double" minOccurs="0" />
+              <xs:element name="imagenAtMedic" msprop:Generator_ColumnVarNameInTable="columnimagenAtMedic" msprop:Generator_ColumnPropNameInRow="imagenAtMedic" msprop:Generator_ColumnPropNameInTable="imagenAtMedicColumn" msprop:Generator_UserColumnName="imagenAtMedic" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="dañosPropiedad" msprop:Generator_ColumnVarNameInTable="columndañosPropiedad" msprop:Generator_ColumnPropNameInRow="dañosPropiedad" msprop:Generator_ColumnPropNameInTable="dañosPropiedadColumn" msprop:Generator_UserColumnName="dañosPropiedad" type="xs:double" minOccurs="0" />
+              <xs:element name="imagenDProp" msprop:Generator_ColumnVarNameInTable="columnimagenDProp" msprop:Generator_ColumnPropNameInRow="imagenDProp" msprop:Generator_ColumnPropNameInTable="imagenDPropColumn" msprop:Generator_UserColumnName="imagenDProp" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="muerteAccidente" msprop:Generator_ColumnVarNameInTable="columnmuerteAccidente" msprop:Generator_ColumnPropNameInRow="muerteAccidente" msprop:Generator_ColumnPropNameInTable="muerteAccidenteColumn" msprop:Generator_UserColumnName="muerteAccidente" type="xs:double" minOccurs="0" />
+              <xs:element name="imagenMuerteAcc" msprop:Generator_ColumnVarNameInTable="columnimagenMuerteAcc" msprop:Generator_ColumnPropNameInRow="imagenMuerteAcc" msprop:Generator_ColumnPropNameInTable="imagenMuerteAccColumn" msprop:Generator_UserColumnName="imagenMuerteAcc" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="perdidaTotal" msprop:Generator_ColumnVarNameInTable="columnperdidaTotal" msprop:Generator_ColumnPropNameInRow="perdidaTotal" msprop:Generator_ColumnPropNameInTable="perdidaTotalColumn" msprop:Generator_UserColumnName="perdidaTotal" type="xs:double" minOccurs="0" />
+              <xs:element name="imagenPerdTotal" msprop:Generator_ColumnVarNameInTable="columnimagenPerdTotal" msprop:Generator_ColumnPropNameInRow="imagenPerdTotal" msprop:Generator_ColumnPropNameInTable="imagenPerdTotalColumn" msprop:Generator_UserColumnName="imagenPerdTotal" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="reparacionVehicular" msprop:Generator_ColumnVarNameInTable="columnreparacionVehicular" msprop:Generator_ColumnPropNameInRow="reparacionVehicular" msprop:Generator_ColumnPropNameInTable="reparacionVehicularColumn" msprop:Generator_UserColumnName="reparacionVehicular" type="xs:double" minOccurs="0" />
+              <xs:element name="imagenRepVehicular" msprop:Generator_ColumnVarNameInTable="columnimagenRepVehicular" msprop:Generator_ColumnPropNameInRow="imagenRepVehicular" msprop:Generator_ColumnPropNameInTable="imagenRepVehicularColumn" msprop:Generator_UserColumnName="imagenRepVehicular" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="idSiniestro" msprop:Generator_ColumnVarNameInTable="columnidSiniestro" msprop:Generator_ColumnPropNameInRow="idSiniestro" msprop:Generator_ColumnPropNameInTable="idSiniestroColumn" msprop:Generator_UserColumnName="idSiniestro" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:View_Report1" />
+      <xs:field xpath="mstns:IDPoliza" />
+    </xs:unique>
+    <xs:unique name="View_Report2_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:View_Report2" />
+      <xs:field xpath="mstns:IDSiniestro" />
+    </xs:unique>
+    <xs:unique name="View_Report3_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:View_Report3" />
+      <xs:field xpath="mstns:IDSiniestro" />
+    </xs:unique>
+    <xs:unique name="View_Report4_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:View_Report4" />
+      <xs:field xpath="mstns:idDetalleGasto" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
